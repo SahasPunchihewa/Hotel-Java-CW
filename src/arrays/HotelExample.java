@@ -11,7 +11,9 @@ public class HotelExample
         //for (int x = 0; x < 6; x++ ) hotel[x] = ""; //initialise
         initialise(hotel); //better to initialise in a procedure
 
-        System.out.println("Do You Want To View All Rooms Or Add a Customer To Room? (Press V or A)");
+        System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
+                "e - Display Empty Rooms\nd - Delete Customer From Room\f - Find Room From Customer\n" +
+                "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name");
         String menuOut=input.next().toLowerCase();
         if(menuOut.equals("v"))
         {
