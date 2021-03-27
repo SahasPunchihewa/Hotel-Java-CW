@@ -10,6 +10,22 @@ public class HotelExample
         String[] hotel = new String[7];
         //for (int x = 0; x < 6; x++ ) hotel[x] = ""; //initialise
         initialise(hotel); //better to initialise in a procedure
+
+        System.out.println("Do You Want To View All Rooms Or Add a Customer To Room? (Press V or A)");
+        String menuOut=input.next().toLowerCase();
+        if(menuOut.equals("v"))
+        {
+            viewAll(hotel);
+        }
+        else if(menuOut.equals("a"))
+        {
+            addCustomer(roomNum,input,roomName,hotel);
+        }
+        else
+        {
+            System.out.println("Please Enter A Valid Input !");
+        }
+
         while ( roomNum < 6 )
         {
             viewAll(hotel);
