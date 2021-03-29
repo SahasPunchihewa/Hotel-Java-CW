@@ -8,36 +8,29 @@ public class HotelExample
         String roomName="";
         int roomNum = 0;
         String[] hotel = new String[7];
-        //for (int x = 0; x < 6; x++ ) hotel[x] = ""; //initialise
-        initialise(hotel); //better to initialise in a procedure
+        initialise(hotel);
 
         System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
-                "e - Display Empty Rooms\nd - Delete Customer From Room\f - Find Room From Customer\n" +
+                "e - Display Empty Rooms\nd - Delete Customer From Room\nf - Find Room From Customer\n" +
                 "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name");
         String menuOut=input.next().toLowerCase();
-        if(menuOut.equals("v"))
+        switch (menuOut)
         {
-            viewAll(hotel);
-        }
-        else if(menuOut.equals("a"))
-        {
-            addCustomer(roomNum,input,roomName,hotel);
-        }
-        else
-        {
-            System.out.println("Please Enter A Valid Input !");
+            case "v":
+                viewAll(hotel);
+                break;
+            case  "a":
+                addCustomer(roomNum,input,roomName,hotel);
+                viewAll(hotel);
+                break;
+
         }
 
-        while ( roomNum < 6 )
+        /*while ( roomNum < 6 )
         {
             viewAll(hotel);
             addCustomer(roomNum,input,roomName,hotel);
-
-            for (int x = 0; x < 6; x++ )
-            {
-                System.out.println("room " + x + " occupied by " + hotel[x]);
-            }
-        }
+        }*/
     }
     private static void initialise( String hotelRef[] )
     {
@@ -48,7 +41,14 @@ public class HotelExample
     {
         for (int x = 0; x < 6; x++ )
         {
-            if (hotelRoom[x].equals("e"))System.out.println("room " + x + " is empty");
+            if (hotelRoom[x].equals("e"))
+            {
+                System.out.println("room " + x + " is empty");
+            }
+            else
+            {
+                System.out.println("room " + x + " occupied by " + hotelRoom[x]);
+            }
         }
     }
     private static void addCustomer(int rNumber,Scanner cInput,String rName,String hRooms[])
