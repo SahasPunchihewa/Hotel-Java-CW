@@ -25,11 +25,14 @@ public class HotelExample
                     viewAll(hotel);
                     break;
                 case  "a":
-                    addCustomer(roomNum,input,roomName,hotel);
+                    addCustomer(hotel);
                     viewAll(hotel);
                     break;
                 case "e":
                     viewEmpty(hotel);
+                    break;
+                case "d":
+                    deleteCustomer(hotel);
                     break;
 
             }
@@ -70,12 +73,29 @@ public class HotelExample
             }
         }
     }
-    private static void addCustomer(int rNumber,Scanner cInput,String rName,String hRooms[])
+    private static void addCustomer(String hRooms[])
     {
+        Scanner cInput=new Scanner(System.in);
         System.out.println("Enter room number (0-5) or 6 to stop:" );
-        rNumber = cInput.nextInt();
+        int rNumber = cInput.nextInt();
         System.out.println("Enter name for room " + rNumber +" :" ) ;
-        rName = cInput.next();
+        String rName = cInput.next();
         hRooms[rNumber] = rName ;
+    }
+    private static void deleteCustomer(String hRooms[])
+    {
+        Scanner cInput=new Scanner(System.in);
+        System.out.println("Enter room number (0-5) to Delete A Customer" );
+        int rNumber = cInput.nextInt();
+        if(hRooms[rNumber].equals("e"))
+        {
+            System.out.println("This Room Is Already Empty");
+        }
+        else
+        {
+            String rname=hRooms[rNumber];
+            hRooms[rNumber]="e";
+            System.out.println("Successfully Deleted "+rname);
+        }
     }
 }
