@@ -9,24 +9,30 @@ public class HotelExample
         int roomNum = 0;
         String[] hotel = new String[7];
         initialise(hotel);
-
-        System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
-                "e - Display Empty Rooms\nd - Delete Customer From Room\nf - Find Room From Customer\n" +
-                "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name");
-        String menuOut=input.next().toLowerCase();
-        switch (menuOut)
+        mainloop:
+        while(true)
         {
-            case "v":
-                viewAll(hotel);
-                break;
-            case  "a":
-                addCustomer(roomNum,input,roomName,hotel);
-                viewAll(hotel);
-                break;
-            case "e":
-                viewEmpty(hotel);
-                break;
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
+                    "e - Display Empty Rooms\nd - Delete Customer From Room\nf - Find Room From Customer\n" +
+                    "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
+                    "\nx - Stop Program");
+            String menuOut=input.next().toLowerCase();
+            switch (menuOut)
+            {
+                case "x":
+                    break mainloop;
+                case "v":
+                    viewAll(hotel);
+                    break;
+                case  "a":
+                    addCustomer(roomNum,input,roomName,hotel);
+                    viewAll(hotel);
+                    break;
+                case "e":
+                    viewEmpty(hotel);
+                    break;
 
+            }
         }
 
         /*while ( roomNum < 6 )
