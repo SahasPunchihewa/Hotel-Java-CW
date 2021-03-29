@@ -1,5 +1,6 @@
 package arrays;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -43,13 +44,16 @@ public class HotelExample
                 case "s":
                     storeData(hotel);
                     break;
+                case "l":
+                    loadData(hotel);
+                    break;
             }
         }
     }
     private static void initialise( String hotelRef[] )
     {
         for (int x = 0; x < 6; x++ ) hotelRef[x] = "e";
-        System.out.println( "initilise ");
+        System.out.println( "initialise ");
     }
     private static void viewAll(String hotelRoom[])
     {
@@ -136,12 +140,34 @@ public class HotelExample
             System.out.println("An Error Occurred");
         }
     }
+    private static void loadData(String hRooms[])
+    {
+        try
+        {
+            File rooms = new File("rooms.txt");
+            Scanner txtReader = new Scanner(rooms);
+            int i=0;
+            while (txtReader.hasNextLine())
+            {
+                String[] room = txtReader.nextLine().split("\\|");
+                hRooms[i]=room[1];
+                i++;
+            }
+            System.out.println("Successfully Loaded !");
+            txtReader.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("Cannot Find The File");
+            //e.printStackTrace();
+        }
+    }
 }
 
 /*References
 
 https://stackoverflow.com/questions/886955/how-do-i-break-out-of-nested-loops-in-java
 https://stackoverflow.com/questions/6171663/how-to-find-the-index-of-an-element-in-an-int-array/34173462
-
+https://www.w3schools.com/java/java_files_create.asp
 
  */
