@@ -1,4 +1,5 @@
 package arrays;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -46,6 +47,9 @@ public class HotelExample
                     break;
                 case "l":
                     loadData(hotel);
+                    break;
+                case "o":
+                    sortData(hotel);
                     break;
             }
         }
@@ -162,6 +166,31 @@ public class HotelExample
             //e.printStackTrace();
         }
     }
+    private static void sortData(String hRooms[])
+    {
+        String[] sortedRooms=hRooms;
+        for(int j=0;j<sortedRooms.length;j++)
+        {
+            for (int i=0;i<sortedRooms.length-2;i++)
+            {
+                String tmp=sortedRooms[i];
+                String tmp2=sortedRooms[i+1];
+                if(tmp.compareTo(tmp2)>0)
+                {
+                    sortedRooms[i]=tmp2;
+                    sortedRooms[i+1]=tmp;
+                }
+            }
+        }
+        for (int x = 0; x < 6; x++ )
+        {
+            if (!sortedRooms[x].equals("e"))
+            {
+                System.out.println(sortedRooms[x]);
+            }
+        }
+
+    }
 }
 
 /*References
@@ -169,5 +198,6 @@ public class HotelExample
 https://stackoverflow.com/questions/886955/how-do-i-break-out-of-nested-loops-in-java
 https://stackoverflow.com/questions/6171663/how-to-find-the-index-of-an-element-in-an-int-array/34173462
 https://www.w3schools.com/java/java_files_create.asp
+https://www.w3schools.com/java/java_files_read.asp
 
  */
