@@ -23,6 +23,9 @@ public class HotelExample
                 addCustomer(roomNum,input,roomName,hotel);
                 viewAll(hotel);
                 break;
+            case "e":
+                viewEmpty(hotel);
+                break;
 
         }
 
@@ -48,6 +51,16 @@ public class HotelExample
             else
             {
                 System.out.println("room " + x + " occupied by " + hotelRoom[x]);
+            }
+        }
+    }
+    private static void viewEmpty(String hotelRoom[])
+    {
+        for (int x = 0; x < 6; x++ )
+        {
+            if (hotelRoom[x].equals("e"))
+            {
+                System.out.println("room " + x + " is empty");
             }
         }
     }
