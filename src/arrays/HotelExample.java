@@ -7,50 +7,70 @@ import java.io.IOException;
 import java.util.*;
 public class HotelExample
 {
+    //Main method
     public static void main(String[] args)
     {
+        //scanner for menu input
         Scanner input = new Scanner(System.in);
-        String roomName="";
+        String roomName = "";
         int roomNum = 0;
         String[] hotel = new String[7];
-        initialise(hotel);
+        initialise (hotel);
         mainloop:
         while(true)
         {
+            System.out.println("\n------------------------------------------------------------------");
             System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
                     "e - Display Empty Rooms\nd - Delete Customer From Room\nf - Find Room From Customer\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
-            String menuOut=input.next().toLowerCase();
-            switch (menuOut)
+            System.out.println("------------------------------------------------------------------");
+            int subloop = 1;
+            while(subloop == 1)
             {
-                case "x":
-                    break mainloop;
-                case "v":
-                    viewAll(hotel);
-                    break;
-                case  "a":
-                    addCustomer(hotel);
-                    viewAll(hotel);
-                    break;
-                case "e":
-                    viewEmpty(hotel);
-                    break;
-                case "d":
-                    deleteCustomer(hotel);
-                    break;
-                case "f":
-                    findRoom(hotel);
-                    break;
-                case "s":
-                    storeData(hotel);
-                    break;
-                case "l":
-                    loadData(hotel);
-                    break;
-                case "o":
-                    sortData(hotel);
-                    break;
+                String menuOut = input.next().toLowerCase();
+                System.out.println("------------------------------------------------------------------\n");
+                switch (menuOut)
+                {
+                    case "x":
+                        subloop=0;
+                        break mainloop;
+                    case "v":
+                        viewAll(hotel);
+                        subloop=0;
+                        break;
+                    case  "a":
+                        subloop=0;
+                        addCustomer(hotel);
+                        viewAll(hotel);
+                        break;
+                    case "e":
+                        subloop=0;
+                        viewEmpty(hotel);
+                        break;
+                    case "d":
+                        subloop=0;
+                        deleteCustomer(hotel);
+                        break;
+                    case "f":
+                        subloop=0;
+                        findRoom(hotel);
+                        break;
+                    case "s":
+                        subloop=0;
+                        storeData(hotel);
+                        break;
+                    case "l":
+                        subloop=0;
+                        loadData(hotel);
+                        break;
+                    case "o":
+                        subloop=0;
+                        sortData(hotel);
+                        break;
+                    default:
+                        System.out.println("Please Enter A Correct Command !");
+                }
             }
         }
     }
@@ -85,12 +105,23 @@ public class HotelExample
     }
     private static void addCustomer(String hRooms[])
     {
-        Scanner cInput=new Scanner(System.in);
-        System.out.println("Enter room number (0-5) or 6 to stop:" );
-        int rNumber = cInput.nextInt();
-        System.out.println("Enter name for room " + rNumber +" :" ) ;
-        String rName = cInput.next();
-        hRooms[rNumber] = rName ;
+        while (true)
+        {
+            Scanner cInput=new Scanner(System.in);
+            System.out.println("Enter room number (0-5)" );
+            int rNumber = cInput.nextInt();
+            if((rNumber>=0)&&(rNumber<=5))
+            {
+                System.out.println("Enter name for room " + rNumber +" :" ) ;
+                String rName = cInput.next();
+                hRooms[rNumber] = rName ;
+                break;
+            }
+            else
+            {
+                System.out.println("Please Enter Number Between 0 and 5)");
+            }
+        }
     }
     private static void deleteCustomer(String hRooms[])
     {
@@ -199,5 +230,5 @@ https://stackoverflow.com/questions/886955/how-do-i-break-out-of-nested-loops-in
 https://stackoverflow.com/questions/6171663/how-to-find-the-index-of-an-element-in-an-int-array/34173462
 https://www.w3schools.com/java/java_files_create.asp
 https://www.w3schools.com/java/java_files_read.asp
-
+https://stackoverflow.com/questions/20445900/comparing-two-string-and-sorting-them-in-alphabetical-order/41430230
  */
