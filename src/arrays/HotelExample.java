@@ -34,15 +34,12 @@ public class HotelExample
                 case "d":
                     deleteCustomer(hotel);
                     break;
+                case "f":
+                    findRoom(hotel);
+                    break;
 
             }
         }
-
-        /*while ( roomNum < 6 )
-        {
-            viewAll(hotel);
-            addCustomer(roomNum,input,roomName,hotel);
-        }*/
     }
     private static void initialise( String hotelRef[] )
     {
@@ -98,4 +95,20 @@ public class HotelExample
             System.out.println("Successfully Deleted "+rname);
         }
     }
+    private static void findRoom(String hRooms[])
+    {
+        Scanner cInput=new Scanner(System.in);
+        System.out.println("Enter Customer Name :");
+        String rName=cInput.next();
+        int rNumber=Arrays.asList(hRooms).indexOf(rName);
+        System.out.println("Room "+rNumber+" is occupied by "+rName);
+    }
 }
+
+/*References
+
+https://stackoverflow.com/questions/886955/how-do-i-break-out-of-nested-loops-in-java
+
+
+
+ */
