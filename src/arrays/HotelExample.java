@@ -1,4 +1,7 @@
 package arrays;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 public class HotelExample
 {
@@ -37,7 +40,9 @@ public class HotelExample
                 case "f":
                     findRoom(hotel);
                     break;
-
+                case "s":
+                    storeData(hotel);
+                    break;
             }
         }
     }
@@ -103,12 +108,40 @@ public class HotelExample
         int rNumber=Arrays.asList(hRooms).indexOf(rName);
         System.out.println("Room "+rNumber+" is occupied by "+rName);
     }
+    private static void storeData(String hRooms[])
+    {
+        try
+        {
+            File rooms = new File("rooms.txt");
+            rooms.createNewFile();
+            try
+            {
+                FileWriter rWriter = new FileWriter("rooms.txt");
+                for (int x = 0; x < 6; x++ )
+                {
+                    rWriter.write(x+"|"+hRooms[x]+"\n");
+                }
+                rWriter.close();
+                System.out.println("Data Saved Successfully !");
+            }
+            catch (IOException e)
+            {
+                //e.printStackTrace();
+                System.out.println("An Error Occurred");
+            }
+        }
+        catch (IOException e)
+        {
+            //e.printStackTrace();
+            System.out.println("An Error Occurred");
+        }
+    }
 }
 
 /*References
 
 https://stackoverflow.com/questions/886955/how-do-i-break-out-of-nested-loops-in-java
-
+https://stackoverflow.com/questions/6171663/how-to-find-the-index-of-an-element-in-an-int-array/34173462
 
 
  */
