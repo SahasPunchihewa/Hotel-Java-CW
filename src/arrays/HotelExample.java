@@ -14,7 +14,7 @@ public class HotelExample
         Scanner input = new Scanner(System.in);
         String roomName = "";
         int roomNum = 0;
-        String[] hotel = new String[7];
+        String[] hotel = new String[8];
         //call initialize method
         initialise (hotel);
         //loop for repeating main menu
@@ -93,14 +93,14 @@ public class HotelExample
     private static void initialise( String hotelRef[] )
     {
         //insert 'e' for all rooms
-        for (int x = 0; x < 6; x++ ) hotelRef[x] = "e";
+        for (int x = 0; x <hotelRef.length; x++ ) hotelRef[x] = "e";
         System.out.println ( "initialise ");
     }
     //view all rooms method
     private static void viewAll(String hotelRoom[])
     {
         //loops for all rooms
-        for (int x = 0; x < 6; x++ )
+        for (int x = 0; x <hotelRoom.length; x++ )
         {
             //checks for empty rooms
             if (hotelRoom[x].equals("e"))
@@ -117,7 +117,7 @@ public class HotelExample
     private static void viewEmpty(String hotelRoom[])
     {
         //loop for find empty rooms
-        for (int x = 0; x < 6; x++ )
+        for (int x = 0; x < hotelRoom.length; x++ )
         {
             //checks of the room is empty or not
             if (hotelRoom[x].equals("e"))
@@ -133,21 +133,30 @@ public class HotelExample
         while (true)
         {
             Scanner cInput=new Scanner(System.in);
-            System.out.println("Enter room number (0-5)" );
-            int rNumber = cInput.nextInt();
-            //checks is room number is between 0 and 5
-            if((rNumber >= 0) && (rNumber <= 5))
+            System.out.println("Enter room number (0-7)" );
+            try
             {
-                System.out.println("Enter name for room " + rNumber +" :" ) ;
-                String rName = cInput.next();
-                hRooms[rNumber] = rName ;
-                break;
+                int rNumber = cInput.nextInt();
+                //checks is room number is between 0 and 5
+                if((rNumber >= 0) && (rNumber <= 7))
+                {
+                    System.out.println("Enter name for room " + rNumber +" :" ) ;
+                    String rName = cInput.next();
+                    hRooms[rNumber] = rName ;
+                    break;
+                }
+                //if room number is out of range above will be looped
+                else
+                {
+                    System.out.println("Please Enter Number Between 0 and 7)");
+                }
             }
-            //if room number is out of range above will be looped
-            else
+            catch(InputMismatchException e)
             {
-                System.out.println("Please Enter Number Between 0 and 5)");
+                //e.printStackTrace();
+                System.out.println("Please Enter Valid Input");
             }
+
         }
     }
     //delete customer method
@@ -189,7 +198,7 @@ public class HotelExample
             try
             {
                 FileWriter rWriter = new FileWriter("rooms.txt");
-                for (int x = 0; x < 6; x++ )
+                for (int x = 0; x < hRooms.length; x++ )
                 {
                     rWriter.write(x + "|" + hRooms[x] + "\n");
                 }
@@ -241,7 +250,7 @@ public class HotelExample
         for(int j = 0; j < sortedRooms.length; j++)
         {
             //compare values by name
-            for (int i = 0; i < sortedRooms.length-2; i++)
+            for (int i = 0; i < sortedRooms.length-1; i++)
             {
                 String tmp = sortedRooms[i];
                 String tmp2 = sortedRooms[i+1];
@@ -253,7 +262,7 @@ public class HotelExample
             }
         }
         //prints sorted names without empty values
-        for (int x = 0; x < 6; x++ )
+        for (int x = 0; x < hRooms.length; x++ )
         {
             if (!sortedRooms[x].equals("e"))
             {
