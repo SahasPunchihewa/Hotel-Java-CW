@@ -79,7 +79,7 @@ public class HotelClass
                     case "l" :
                         //loads customer data from txt file
                         subloop = 0;
-                        //loadData (hotel);
+                        loadData (hotel);
                         break;
                     case "o" :
                         //sorts customer names alphabetically
@@ -241,7 +241,7 @@ public class HotelClass
         }
     }
     //load data method
-    private static void loadData(String hRooms[])
+    private static void loadData(HashMap<Integer, Room> hRooms)
     {
         //imports text file
         try
@@ -253,7 +253,8 @@ public class HotelClass
             while (txtReader.hasNextLine())
             {
                 String[] room = txtReader.nextLine().split("\\|");
-                hRooms[i] = room[1];
+                Room room1=new Room(room[1]);
+                hRooms.put(i,room1);
                 i++;
             }
             System.out.println("Successfully Loaded !");
