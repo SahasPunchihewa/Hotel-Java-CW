@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class HotelClass
         Scanner input = new Scanner(System.in);
         String roomName = "";
         int roomNum = 0;
-        String[] hotel = new String[8];
+        HashMap<Integer,Room> hotel=new HashMap<Integer, Room>();
         //call initialize method
         initialise (hotel);
         //loop for repeating main menu
@@ -52,38 +53,38 @@ public class HotelClass
                     case  "a" :
                         //add new customer
                         subloop = 0;
-                        addCustomer (hotel);
+                        //addCustomer (hotel);
                         viewAll (hotel);
                         break;
                     case "e" :
                         //view empty rooms
                         subloop = 0;
-                        viewEmpty (hotel);
+                        //viewEmpty (hotel);
                         break;
                     case "d" :
                         //delete customer
                         subloop = 0;
-                        deleteCustomer (hotel);
+                        //deleteCustomer (hotel);
                         break;
                     case "f" :
                         //find room number when customer name given
                         subloop = 0;
-                        findRoom (hotel);
+                        //findRoom (hotel);
                         break;
                     case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
-                        storeData (hotel);
+                        //storeData (hotel);
                         break;
                     case "l" :
                         //loads customer data from txt file
                         subloop = 0;
-                        loadData (hotel);
+                        //loadData (hotel);
                         break;
                     case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
-                        sortData (hotel);
+                        //sortData (hotel);
                         break;
                     default :
                         //repeat menu input when given input is wrong
@@ -93,26 +94,32 @@ public class HotelClass
         }
     }
     //initialise method
-    private static void initialise( String hotelRef[] )
+    private static void initialise(HashMap<Integer, Room> hotelRef)
     {
         //insert 'e' for all rooms
-        for (int x = 0; x <hotelRef.length; x++ ) hotelRef[x] = "e";
+        for (int x = 0; x <8; x++ )
+        {
+            Room room=new Room("e");
+            hotelRef.put(x,room);
+        }
         System.out.println ( "initialise ");
     }
     //view all rooms method
-    private static void viewAll(String hotelRoom[])
+    private static void viewAll(HashMap<Integer, Room> hotelRoom)
     {
         //loops for all rooms
-        for (int x = 0; x <hotelRoom.length; x++ )
+        for (int x = 0; x <8; x++ )
         {
+            Room room=hotelRoom.get(x);
+            String cName=room.getCusName();
             //checks for empty rooms
-            if (hotelRoom[x].equals("e"))
+            if (cName.equals("e"))
             {
-                System.out.println("room " + x + " is empty");
+                System.out.println("Room " + x + " is empty");
             }
             else
             {
-                System.out.println("room " + x + " occupied by " + hotelRoom[x]);
+                System.out.println("Room " + x + " occupied by " + cName);
             }
         }
     }
