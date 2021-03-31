@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HotelClass
+public class Hotel
 {
     //Main method
     public static void main(String[] args)
