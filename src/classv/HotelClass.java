@@ -53,7 +53,7 @@ public class HotelClass
                     case  "a" :
                         //add new customer
                         subloop = 0;
-                        //addCustomer (hotel);
+                        addCustomer (hotel);
                         viewAll (hotel);
                         break;
                     case "e" :
@@ -137,7 +137,7 @@ public class HotelClass
         }
     }
     //add customer method
-    private static void addCustomer(String hRooms[])
+    private static void addCustomer(HashMap<Integer, Room> hRooms)
     {
         //loop for get correct input
         while (true)
@@ -152,7 +152,8 @@ public class HotelClass
                 {
                     System.out.println("Enter name for room " + rNumber +" :" ) ;
                     String rName = cInput.next();
-                    hRooms[rNumber] = rName ;
+                    Room room = new Room(rName);
+                    hRooms.put(rNumber,room);
                     break;
                 }
                 //if room number is out of range above will be looped
