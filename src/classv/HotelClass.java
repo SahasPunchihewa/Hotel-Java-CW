@@ -84,7 +84,7 @@ public class HotelClass
                     case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
-                        //sortData (hotel);
+                        sortData (hotel);
                         break;
                     default :
                         //repeat menu input when given input is wrong
@@ -267,30 +267,35 @@ public class HotelClass
         }
     }
     //sort data method
-    private static void sortData(String hRooms[])
+    private static void sortData(HashMap<Integer, Room> hRooms)
     {
         //create sort data array
-        String[] sortedRooms = hRooms;
-        for(int j = 0; j < sortedRooms.length; j++)
+        HashMap<Integer, Room> sortedRooms = hRooms;
+        for(int j = 0; j < 8; j++)
         {
             //compare values by name
-            for (int i = 0; i < sortedRooms.length-1; i++)
+            for (int i = 0; i < 7; i++)
             {
-                String tmp = sortedRooms[i];
-                String tmp2 = sortedRooms[i+1];
+                Room room1=sortedRooms.get(i);
+                Room room2=sortedRooms.get(i+1);
+                String tmp = room1.getCusName();
+                String tmp2 = room2.getCusName();
                 if(tmp.compareTo(tmp2) >0)
                 {
-                    sortedRooms[i] = tmp2;
-                    sortedRooms[i+1] = tmp;
+                    room1.setCusName(tmp2);
+                    room2.setCusName(tmp);
+                    sortedRooms.put(i,room1);
+                    sortedRooms.put(i+1,room2);
                 }
             }
         }
         //prints sorted names without empty values
-        for (int x = 0; x < hRooms.length; x++ )
+        for (int x = 0; x < 8; x++ )
         {
-            if (!sortedRooms[x].equals("e"))
+            Room room=sortedRooms.get(x);
+            if (!room.getCusName().equals("e"))
             {
-                System.out.println(sortedRooms[x]);
+                System.out.println(room.getCusName());
             }
         }
     }
