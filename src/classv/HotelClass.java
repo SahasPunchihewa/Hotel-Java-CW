@@ -69,7 +69,7 @@ public class HotelClass
                     case "f" :
                         //find room number when customer name given
                         subloop = 0;
-                        //findRoom (hotel);
+                        findRoom (hotel);
                         break;
                     case "s" :
                         //saves customer data into a txt file
@@ -193,13 +193,20 @@ public class HotelClass
         }
     }
     //find room method
-    private static void findRoom(String hRooms[])
+    private static void findRoom(HashMap<Integer, Room> hRooms)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter Customer Name :");
         String rName = cInput.next();
-        int rNumber = Arrays.asList(hRooms).indexOf(rName);
-        System.out.println("Room " + rNumber + " is occupied by " + rName);
+        for (HashMap.Entry<Integer, Room> set : hRooms.entrySet())
+        {
+            Room room = set.getValue();
+            int rNumber= set.getKey();
+            if(room.getCusName().equals(rName))
+            {
+                System.out.println("Room " + rNumber + " is occupied by " + rName);
+            }
+        }
     }
     //store data method
     private static void storeData(String hRooms[])
