@@ -1,5 +1,4 @@
-package arrays;
-import java.awt.*;
+package Task1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
