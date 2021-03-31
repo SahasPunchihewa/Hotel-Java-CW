@@ -64,7 +64,7 @@ public class HotelClass
                     case "d" :
                         //delete customer
                         subloop = 0;
-                        //deleteCustomer (hotel);
+                        deleteCustomer (hotel);
                         break;
                     case "f" :
                         //find room number when customer name given
@@ -173,21 +173,23 @@ public class HotelClass
         }
     }
     //delete customer method
-    private static void deleteCustomer(String hRooms[])
+    private static void deleteCustomer(HashMap<Integer, Room> hRooms)
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-5) to Delete A Customer" );
+        System.out.println("Enter room number (0-7) to Delete A Customer" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
-        if(hRooms[rNumber].equals("e"))
+        Room room=hRooms.get(rNumber);
+        String rName=room.getCusName();
+        if(rName.equals("e"))
         {
             System.out.println("This Room Is Already Empty");
         }
         else
         {
-            String rname = hRooms[rNumber];
-            hRooms[rNumber] = "e";
-            System.out.println("Successfully Deleted "+rname);
+            Room newroom=new Room("e");
+            hRooms.put(rNumber,newroom);
+            System.out.println("Successfully Deleted "+rName);
         }
     }
     //find room method
