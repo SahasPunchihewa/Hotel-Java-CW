@@ -74,7 +74,7 @@ public class HotelClass
                     case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
-                        //storeData (hotel);
+                        storeData (hotel);
                         break;
                     case "l" :
                         //loads customer data from txt file
@@ -209,7 +209,7 @@ public class HotelClass
         }
     }
     //store data method
-    private static void storeData(String hRooms[])
+    private static void storeData(HashMap<Integer, Room> hRooms)
     {
         //create a file
         try
@@ -220,9 +220,10 @@ public class HotelClass
             try
             {
                 FileWriter rWriter = new FileWriter("rooms.txt");
-                for (int x = 0; x < hRooms.length; x++ )
+                for (int x = 0; x < 8; x++ )
                 {
-                    rWriter.write(x + "|" + hRooms[x] + "\n");
+                    Room room=hRooms.get(x);
+                    rWriter.write(x + "|" + room.getCusName() + "\n");
                 }
                 rWriter.close();
                 System.out.println("Data Saved Successfully !");
