@@ -59,7 +59,7 @@ public class HotelClass
                     case "e" :
                         //view empty rooms
                         subloop = 0;
-                        //viewEmpty (hotel);
+                        viewEmpty (hotel);
                         break;
                     case "d" :
                         //delete customer
@@ -124,13 +124,15 @@ public class HotelClass
         }
     }
     //view empty rooms method
-    private static void viewEmpty(String hotelRoom[])
+    private static void viewEmpty(HashMap<Integer, Room> hotelRoom)
     {
         //loop for find empty rooms
-        for (int x = 0; x < hotelRoom.length; x++ )
+        for (int x = 0; x < 8; x++ )
         {
+            Room room=hotelRoom.get(x);
+            String rName=room.getCusName();
             //checks of the room is empty or not
-            if (hotelRoom[x].equals("e"))
+            if (rName.equals("e"))
             {
                 System.out.println("room " + x + " is empty");
             }
