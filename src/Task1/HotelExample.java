@@ -22,8 +22,8 @@ public class HotelExample
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Customer\n" +
-                    "e - Display Empty Rooms\nd - Delete Customer From Room\nf - Find Room From Customer\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -162,7 +162,7 @@ public class HotelExample
     private static void deleteCustomer(String hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-5) to Delete A Customer" );
+        System.out.println("Enter room number (0-5) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         if(hRooms[rNumber].equals("e"))
@@ -180,7 +180,7 @@ public class HotelExample
     private static void findRoom(String hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter Customer Name :");
+        System.out.println("Enter Person Name :");
         String rName = cInput.next();
         int rNumber = Arrays.asList(hRooms).indexOf(rName);
         System.out.println("Room " + rNumber + " is occupied by " + rName);
