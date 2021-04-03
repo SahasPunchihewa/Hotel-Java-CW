@@ -18,7 +18,7 @@ public class HotelT3
         String roomName = "";
         int roomNum = 0;
         HashMap<Integer, Task3.Room> hotel=new HashMap<Integer, Task3.Room>();
-        HashMap<Integer, Task3.Person> customer=new HashMap<Integer, Task3.Person>();
+        HashMap<Integer, Task3.Person> customer=new HashMap<Integer, Person>();
         //call initialize method
         initialise (hotel,customer);
         //loop for repeating main menu
@@ -61,12 +61,12 @@ public class HotelT3
                         subloop = 0;
                         viewEmpty (hotel);
                         break;
-                    /*case "d" :
+                    case "d" :
                         //delete customer
                         subloop = 0;
-                        deleteCustomer (hotel);
+                        deleteCustomer (hotel,customer);
                         break;
-                    case "f" :
+                    /*case "f" :
                         //find room number when customer name given
                         subloop = 0;
                         findRoom (hotel);
@@ -94,7 +94,7 @@ public class HotelT3
         }
     }
     //initialise method
-    private static void initialise(HashMap<Integer, Task3.Room> hotelRef,HashMap<Integer, Task3.Person> guestList)
+    private static void initialise(HashMap<Integer, Task3.Room> hotelRef,HashMap<Integer, Person> guestList)
     {
         //insert 'e' for all rooms
         for (int x = 0; x <8; x++ )
@@ -140,9 +140,9 @@ public class HotelT3
                 System.out.println("room " + x + " is empty");
             }
         }
-    }/*
+    }
     //add customer method
-    private static void addCustomer(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer, Task3.Person> guestList)
+    private static void addCustomer(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer, Person> guestList)
     {
         //loop for get correct input
         while (true)
@@ -185,7 +185,7 @@ public class HotelT3
         }
     }
     //delete customer method
-    /*private static void deleteCustomer(HashMap<Integer, Room> hRooms)
+    private static void deleteCustomer(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer, Person> guestList)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter room number (0-7) to Delete A Person" );
@@ -199,11 +199,13 @@ public class HotelT3
         }
         else
         {
-            Room newroom=new Room("e");
+            Room newroom=new Room("e",0);
+            Person gusest=new Person("e","e",0);
             hRooms.put(rNumber,newroom);
+            guestList.put(rNumber,gusest);
             System.out.println("Successfully Deleted "+rName);
         }
-    }
+    }/*
     //find room method
     private static void findRoom(HashMap<Integer, Room> hRooms)
     {
