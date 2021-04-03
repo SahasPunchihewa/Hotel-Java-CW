@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Hotel
+public class HotelT3
 {
     //Main method
     public static void main(String[] args)
@@ -17,10 +17,10 @@ public class Hotel
         Scanner input = new Scanner(System.in);
         String roomName = "";
         int roomNum = 0;
-        HashMap<Integer, Room> hotel=new HashMap<Integer, Room>();
-        HashMap<Integer, Person> customer=new HashMap<Integer, Person>();
+        HashMap<Integer, Task3.Room> hotel=new HashMap<Integer, Task3.Room>();
+        HashMap<Integer, Task3.Person> customer=new HashMap<Integer, Task3.Person>();
         //call initialize method
-        initialise (hotel);
+        initialise (hotel,customer);
         //loop for repeating main menu
         mainloop:
         while (true)
@@ -45,7 +45,7 @@ public class Hotel
                         //stops the program
                         subloop = 0;
                         break mainloop;
-                    case "v" :
+                    /*case "v" :
                         //view all rooms
                         viewAll (hotel);
                         subloop = 0;
@@ -86,7 +86,7 @@ public class Hotel
                         subloop = 0;
                         sortData (hotel);
                         break;
-                    default :
+                    */default :
                         //repeat menu input when given input is wrong
                         System.out.println("Please Enter A Correct Command !");
                 }
@@ -94,16 +94,18 @@ public class Hotel
         }
     }
     //initialise method
-    private static void initialise(HashMap<Integer, Room> hotelRef)
+    private static void initialise(HashMap<Integer, Task3.Room> hotelRef,HashMap<Integer, Task3.Person> guestList)
     {
         //insert 'e' for all rooms
         for (int x = 0; x <8; x++ )
         {
-            Room room=new Room("e");
+            Task3.Room room=new Task3.Room("e",0);
+            Task3.Person guest=new Task3.Person("e","e",0);
             hotelRef.put(x,room);
+            guestList.put(x,guest);
         }
         System.out.println ( "initialise ");
-    }
+    }/*
     //view all rooms method
     private static void viewAll(HashMap<Integer, Room> hotelRoom)
     {
@@ -298,7 +300,7 @@ public class Hotel
                 System.out.println(room.getCusName());
             }
         }
-    }
+    }*/
 }
 
 /*References
