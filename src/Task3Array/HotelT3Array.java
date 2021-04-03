@@ -58,7 +58,7 @@ public class HotelT3Array
                         addCustomer (hotel);
                         viewAll (hotel);
                         break;
-                    /*case "e" :
+                    case "e" :
                         //view empty rooms
                         subloop = 0;
                         viewEmpty (hotel);
@@ -68,7 +68,7 @@ public class HotelT3Array
                         subloop = 0;
                         deleteCustomer (hotel);
                         break;
-                    case "f" :
+                    /*case "f" :
                         //find room number when customer name given
                         subloop = 0;
                         findRoom (hotel);
@@ -126,13 +126,13 @@ public class HotelT3Array
         }
     }
     //view empty rooms method
-    private static void viewEmpty(String hotelRoom[])
+    private static void viewEmpty(String hotelRoom[][])
     {
         //loop for find empty rooms
-        for (int x = 0; x < hotelRoom.length; x++ )
+        for (int x = 0; x < 8; x++ )
         {
             //checks of the room is empty or not
-            if (hotelRoom[x].equals("e"))
+            if (hotelRoom[x][0].equals("e"))
             {
                 System.out.println("room " + x + " is empty");
             }
@@ -182,20 +182,20 @@ public class HotelT3Array
         }
     }
     //delete customer method
-    private static void deleteCustomer(String hRooms[])
+    private static void deleteCustomer(String hRooms[][])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-5) to Delete A Person" );
+        System.out.println("Enter room number (0-7) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
-        if(hRooms[rNumber].equals("e"))
+        if(hRooms[rNumber][0].equals("e"))
         {
             System.out.println("This Room Is Already Empty");
         }
         else
         {
-            String rname = hRooms[rNumber];
-            hRooms[rNumber] = "e";
+            String rname = hRooms[rNumber][0];
+            hRooms[rNumber][0] = "e";
             System.out.println("Successfully Deleted "+rname);
         }
     }
