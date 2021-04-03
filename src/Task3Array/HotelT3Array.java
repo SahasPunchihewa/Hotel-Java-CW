@@ -68,12 +68,12 @@ public class HotelT3Array
                         subloop = 0;
                         deleteCustomer (hotel);
                         break;
-                    /*case "f" :
+                    case "f" :
                         //find room number when customer name given
                         subloop = 0;
                         findRoom (hotel);
                         break;
-                    case "s" :
+                    /*case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
                         storeData (hotel);
@@ -178,7 +178,6 @@ public class HotelT3Array
                 //e.printStackTrace();
                 System.out.println("Please Enter Valid Input");
             }
-
         }
     }
     //delete customer method
@@ -200,13 +199,19 @@ public class HotelT3Array
         }
     }
     //find room method
-    private static void findRoom(String hRooms[])
+    private static void findRoom(String hRooms[][])
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter Person Name :");
         String rName = cInput.next();
-        int rNumber = Arrays.asList(hRooms).indexOf(rName);
-        System.out.println("Room " + rNumber + " is occupied by " + rName);
+        for(int i=0;i<8;i++)
+        {
+            if(hRooms[i][0].equals(rName))
+            {
+                System.out.println("Room " + i + " is occupied by " + rName+" "+hRooms[i][1]+"\n" +
+                        "\tGuests : "+hRooms[i][2]+"\n\tCredit Card Number : "+hRooms[i][3]);
+            }
+        }
     }
     //store data method
     private static void storeData(String hRooms[])
