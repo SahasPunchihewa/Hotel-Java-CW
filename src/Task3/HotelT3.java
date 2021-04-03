@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 public class HotelT3
@@ -76,12 +77,12 @@ public class HotelT3
                         subloop = 0;
                         storeData (hotel,customer);
                         break;
-                    /*case "l" :
+                    case "l" :
                         //loads customer data from txt file
                         subloop = 0;
-                        loadData (hotel);
+                        loadData (hotel,customer);
                         break;
-                    case "o" :
+                    /*case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
                         sortData (hotel);
@@ -260,9 +261,9 @@ public class HotelT3
             //e.printStackTrace();
             System.out.println("An Error Occurred");
         }
-    }/*
+    }
     //load data method
-    private static void loadData(HashMap<Integer, Room> hRooms)
+    private static void loadData(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer,Person> guestList)
     {
         //imports text file
         try
@@ -274,8 +275,11 @@ public class HotelT3
             while (txtReader.hasNextLine())
             {
                 String[] room = txtReader.nextLine().split("\\|");
-                Room room1=new Room(room[1]);
+                System.out.println();
+                Room room1=new Room(room[1],Integer.parseInt(room[2]));
+                Person guest=new Person(room[1],room[3],Double.parseDouble(room[4]));
                 hRooms.put(i,room1);
+                guestList.put(i,guest);
                 i++;
             }
             System.out.println("Successfully Loaded !");
@@ -286,7 +290,7 @@ public class HotelT3
             System.out.println("Cannot Find The File");
             //e.printStackTrace();
         }
-    }
+    }/*
     //sort data method
     private static void sortData(HashMap<Integer, Room> hRooms)
     {
