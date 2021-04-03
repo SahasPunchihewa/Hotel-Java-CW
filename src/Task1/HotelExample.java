@@ -162,7 +162,7 @@ public class HotelExample
     private static void deleteCustomer(String hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-5) to Delete A Person" );
+        System.out.println("Enter room number (0-7) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         if(hRooms[rNumber].equals("e"))
