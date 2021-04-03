@@ -78,12 +78,12 @@ public class HotelT3Array
                         subloop = 0;
                         storeData (hotel);
                         break;
-                    /*case "l" :
+                    case "l" :
                         //loads customer data from txt file
                         subloop = 0;
                         loadData (hotel);
                         break;
-                    case "o" :
+                    /*case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
                         sortData (hotel);
@@ -246,7 +246,7 @@ public class HotelT3Array
         }
     }
     //load data method
-    private static void loadData(String hRooms[])
+    private static void loadData(String hRooms[][])
     {
         //imports text file
         try
@@ -258,7 +258,10 @@ public class HotelT3Array
             while (txtReader.hasNextLine())
             {
                 String[] room = txtReader.nextLine().split("\\|");
-                hRooms[i] = room[1];
+                hRooms[i][0] = room[1];
+                hRooms[i][1] = room[2];
+                hRooms[i][2] = room[3];
+                hRooms[i][3] = room[4];
                 i++;
             }
             System.out.println("Successfully Loaded !");
