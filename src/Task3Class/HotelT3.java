@@ -28,7 +28,7 @@ public class HotelT3
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
             System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From RoomT3\nf - Find RoomT3 From Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -122,7 +122,7 @@ public class HotelT3
             }
             else
             {
-                System.out.println("RoomT3 " + x + " occupied by " + cName + " And Have "+ cusNo + " Guests");
+                System.out.println("Room " + x + " occupied by " + cName + " And Have "+ cusNo + " Guests");
             }
         }
     }
@@ -195,7 +195,7 @@ public class HotelT3
         String rName=room.getCusName();
         if(rName.equals("e"))
         {
-            System.out.println("This RoomT3 Is Already Empty");
+            System.out.println("This Room Is Already Empty");
         }
         else
         {
@@ -222,7 +222,7 @@ public class HotelT3
             double cardNo=guest.getCreditCard();
             if(room.getCusName().equals(rName))
             {
-                System.out.println("RoomT3 " + rNumber + " is occupied by " + rName + " " +lName+
+                System.out.println("Room " + rNumber + " is occupied by " + rName + " " +lName+
                         "\n\tGuests : "+noCus+"\n\tCredit Card Number : "+cardNo);
             }
         }

@@ -1,5 +1,8 @@
 package Task3Array;
 
+import Task3Class.Person;
+import Task3Class.RoomT3;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -27,7 +30,7 @@ public class HotelT3Array
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
             System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From RoomT3\nf - Find RoomT3 From Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -44,7 +47,7 @@ public class HotelT3Array
                         //stops the program
                         subloop = 0;
                         break mainloop;
-                    /*case "v" :
+                    case "v" :
                         //view all rooms
                         viewAll (hotel);
                         subloop = 0;
@@ -55,7 +58,7 @@ public class HotelT3Array
                         addCustomer (hotel);
                         viewAll (hotel);
                         break;
-                    case "e" :
+                    /*case "e" :
                         //view empty rooms
                         subloop = 0;
                         viewEmpty (hotel);
@@ -106,19 +109,19 @@ public class HotelT3Array
         System.out.println ( "initialise ");
     }
     //view all rooms method
-    private static void viewAll(String hotelRoom[])
+    private static void viewAll(String hotelRoom[][])
     {
         //loops for all rooms
-        for (int x = 0; x <hotelRoom.length; x++ )
+        for (int x = 0; x <8; x++ )
         {
             //checks for empty rooms
-            if (hotelRoom[x].equals("e"))
+            if (hotelRoom[x][0].equals("e"))
             {
                 System.out.println("room " + x + " is empty");
             }
             else
             {
-                System.out.println("room " + x + " occupied by " + hotelRoom[x]);
+                System.out.println("room " + x + " occupied by " + hotelRoom[x][0]+" "+hotelRoom[x][1]);
             }
         }
     }
@@ -136,7 +139,7 @@ public class HotelT3Array
         }
     }
     //add customer method
-    private static void addCustomer(String hRooms[])
+    private static void addCustomer(String hRooms[][])
     {
         //loop for get correct input
         while (true)
@@ -149,9 +152,19 @@ public class HotelT3Array
                 //checks is room number is between 0 and 5
                 if((rNumber >= 0) && (rNumber <= 7))
                 {
-                    System.out.println("Enter name for room " + rNumber +" :" ) ;
-                    String rName = cInput.next();
-                    hRooms[rNumber] = rName ;
+                    System.out.println("Enter First name :" ) ;
+                    String fName = cInput.next();
+                    System.out.println("Enter Last Name :" ) ;
+                    String lName = cInput.next();
+                    System.out.println("Enter Number Of Customers In The Room :" ) ;
+                    int noCus = cInput.nextInt();
+                    System.out.println("Enter Credit Card Number :" ) ;
+                    double  cardNo= cInput.nextDouble();
+                    System.out.println();
+                    hRooms[rNumber][0] = fName ;
+                    hRooms[rNumber][1] = lName ;
+                    hRooms[rNumber][2] = String.valueOf(noCus) ;
+                    hRooms[rNumber][3] = String.valueOf(cardNo) ;
                     break;
                 }
                 //if room number is out of range above will be looped
@@ -177,7 +190,7 @@ public class HotelT3Array
         //checks is entered room is empty or not
         if(hRooms[rNumber].equals("e"))
         {
-            System.out.println("This RoomT3 Is Already Empty");
+            System.out.println("This Room Is Already Empty");
         }
         else
         {
@@ -193,7 +206,7 @@ public class HotelT3Array
         System.out.println("Enter Person Name :");
         String rName = cInput.next();
         int rNumber = Arrays.asList(hRooms).indexOf(rName);
-        System.out.println("RoomT3 " + rNumber + " is occupied by " + rName);
+        System.out.println("Room " + rNumber + " is occupied by " + rName);
     }
     //store data method
     private static void storeData(String hRooms[])
