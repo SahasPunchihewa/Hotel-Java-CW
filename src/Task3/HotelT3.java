@@ -56,12 +56,12 @@ public class HotelT3
                         addCustomer (hotel,customer);
                         viewAll (hotel);
                         break;
-                    /*case "e" :
+                    case "e" :
                         //view empty rooms
                         subloop = 0;
                         viewEmpty (hotel);
                         break;
-                    case "d" :
+                    /*case "d" :
                         //delete customer
                         subloop = 0;
                         deleteCustomer (hotel);
@@ -125,7 +125,7 @@ public class HotelT3
                 System.out.println("Room " + x + " occupied by " + cName + " And Have "+ cusNo + " Guests");
             }
         }
-    }/*
+    }
     //view empty rooms method
     private static void viewEmpty(HashMap<Integer, Room> hotelRoom)
     {
@@ -140,7 +140,7 @@ public class HotelT3
                 System.out.println("room " + x + " is empty");
             }
         }
-    }*/
+    }/*
     //add customer method
     private static void addCustomer(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer, Task3.Person> guestList)
     {
