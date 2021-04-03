@@ -23,7 +23,7 @@ public class HotelExample
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
             System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From RoomT3\nf - Find RoomT3 From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -167,7 +167,7 @@ public class HotelExample
         //checks is entered room is empty or not
         if(hRooms[rNumber].equals("e"))
         {
-            System.out.println("This Room Is Already Empty");
+            System.out.println("This RoomT3 Is Already Empty");
         }
         else
         {
@@ -183,7 +183,7 @@ public class HotelExample
         System.out.println("Enter Person Name :");
         String rName = cInput.next();
         int rNumber = Arrays.asList(hRooms).indexOf(rName);
-        System.out.println("Room " + rNumber + " is occupied by " + rName);
+        System.out.println("RoomT3 " + rNumber + " is occupied by " + rName);
     }
     //store data method
     private static void storeData(String hRooms[])

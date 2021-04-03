@@ -1,4 +1,4 @@
-package Task3;
+package Task3Class;
 
 public class Person
 {
