@@ -50,13 +50,13 @@ public class HotelT3
                         viewAll (hotel);
                         subloop = 0;
                         break;
-                    /*case  "a" :
+                    case  "a" :
                         //add new customer
                         subloop = 0;
-                        addCustomer (hotel);
+                        addCustomer (hotel,customer);
                         viewAll (hotel);
                         break;
-                    case "e" :
+                    /*case "e" :
                         //view empty rooms
                         subloop = 0;
                         viewEmpty (hotel);
@@ -114,6 +114,7 @@ public class HotelT3
         {
             Room room=hotelRoom.get(x);
             String cName=room.getCusName();
+            int cusNo=room.getNoCustomer();
             //checks for empty rooms
             if (cName.equals("e"))
             {
@@ -121,7 +122,7 @@ public class HotelT3
             }
             else
             {
-                System.out.println("Room " + x + " occupied by " + cName);
+                System.out.println("Room " + x + " occupied by " + cName + " And Have "+ cusNo + " Guests");
             }
         }
     }/*
@@ -139,9 +140,9 @@ public class HotelT3
                 System.out.println("room " + x + " is empty");
             }
         }
-    }
+    }*/
     //add customer method
-    private static void addCustomer(HashMap<Integer, Room> hRooms)
+    private static void addCustomer(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer, Task3.Person> guestList)
     {
         //loop for get correct input
         while (true)
@@ -154,10 +155,19 @@ public class HotelT3
                 //checks is room number is between 0 and 5
                 if((rNumber >= 0) && (rNumber <= 7))
                 {
-                    System.out.println("Enter name for room " + rNumber +" :" ) ;
-                    String rName = cInput.next();
-                    Room room = new Room(rName);
+                    System.out.println("Enter First name :" ) ;
+                    String fName = cInput.next();
+                    System.out.println("Enter Last Name :" ) ;
+                    String lName = cInput.next();
+                    System.out.println("Enter Number Of Customers In The Room :" ) ;
+                    int noCus = cInput.nextInt();
+                    System.out.println("Enter Credit Card Number :" ) ;
+                    double  cardNo= cInput.nextDouble();
+                    System.out.println();
+                    Room room = new Room(fName,noCus);
+                    Person guest=new Person(fName,lName,cardNo);
                     hRooms.put(rNumber,room);
+                    guestList.put(rNumber,guest);
                     break;
                 }
                 //if room number is out of range above will be looped
@@ -175,7 +185,7 @@ public class HotelT3
         }
     }
     //delete customer method
-    private static void deleteCustomer(HashMap<Integer, Room> hRooms)
+    /*private static void deleteCustomer(HashMap<Integer, Room> hRooms)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter room number (0-7) to Delete A Person" );

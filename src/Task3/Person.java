@@ -3,9 +3,9 @@ package Task3;
 public class Person
 {
     private String firstName,surName;
-    private int creditCard;
+    private double creditCard;
 
-    public Person(String firstName, String surName, int creditCard)
+    public Person(String firstName, String surName, double creditCard)
     {
         this.firstName = firstName;
         this.surName = surName;
@@ -32,7 +32,7 @@ public class Person
         this.surName = surName;
     }
 
-    public int getCreditCard()
+    public double getCreditCard()
     {
         return creditCard;
     }
