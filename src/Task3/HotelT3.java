@@ -71,12 +71,12 @@ public class HotelT3
                         subloop = 0;
                         findRoom (hotel,customer);
                         break;
-                    /*case "s" :
+                    case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
-                        storeData (hotel);
+                        storeData (hotel,customer);
                         break;
-                    case "l" :
+                    /*case "l" :
                         //loads customer data from txt file
                         subloop = 0;
                         loadData (hotel);
@@ -226,9 +226,9 @@ public class HotelT3
                         "\n\tGuests : "+noCus+"\n\tCredit Card Number : "+cardNo);
             }
         }
-    }/*
+    }
     //store data method
-    private static void storeData(HashMap<Integer, Room> hRooms)
+    private static void storeData(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer,Person> guestList)
     {
         //create a file
         try
@@ -242,7 +242,9 @@ public class HotelT3
                 for (int x = 0; x < 8; x++ )
                 {
                     Room room=hRooms.get(x);
-                    rWriter.write(x + "|" + room.getCusName() + "\n");
+                    Person guest=guestList.get(x);
+                    rWriter.write(x + "|" + room.getCusName() +"|"+room.getNoCustomer()+
+                            "|"+guest.getSurName()+ "|"+guest.getCreditCard()+"\n");
                 }
                 rWriter.close();
                 System.out.println("Data Saved Successfully !");
@@ -258,7 +260,7 @@ public class HotelT3
             //e.printStackTrace();
             System.out.println("An Error Occurred");
         }
-    }
+    }/*
     //load data method
     private static void loadData(HashMap<Integer, Room> hRooms)
     {
