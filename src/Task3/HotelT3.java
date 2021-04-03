@@ -66,12 +66,12 @@ public class HotelT3
                         subloop = 0;
                         deleteCustomer (hotel,customer);
                         break;
-                    /*case "f" :
+                    case "f" :
                         //find room number when customer name given
                         subloop = 0;
-                        findRoom (hotel);
+                        findRoom (hotel,customer);
                         break;
-                    case "s" :
+                    /*case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
                         storeData (hotel);
@@ -205,9 +205,9 @@ public class HotelT3
             guestList.put(rNumber,gusest);
             System.out.println("Successfully Deleted "+rName);
         }
-    }/*
+    }
     //find room method
-    private static void findRoom(HashMap<Integer, Room> hRooms)
+    private static void findRoom(HashMap<Integer, Task3.Room> hRooms,HashMap<Integer,Person> guestList)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter Person Name :");
@@ -216,12 +216,17 @@ public class HotelT3
         {
             Room room = set.getValue();
             int rNumber= set.getKey();
+            int noCus=room.getNoCustomer();
+            Person guest=guestList.get(rNumber);
+            String lName=guest.getSurName();
+            double cardNo=guest.getCreditCard();
             if(room.getCusName().equals(rName))
             {
-                System.out.println("Room " + rNumber + " is occupied by " + rName);
+                System.out.println("Room " + rNumber + " is occupied by " + rName + " " +lName+
+                        "\n\tGuests : "+noCus+"\n\tCredit Card Number : "+cardNo);
             }
         }
-    }
+    }/*
     //store data method
     private static void storeData(HashMap<Integer, Room> hRooms)
     {
