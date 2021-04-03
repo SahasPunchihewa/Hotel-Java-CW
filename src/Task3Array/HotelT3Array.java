@@ -73,12 +73,12 @@ public class HotelT3Array
                         subloop = 0;
                         findRoom (hotel);
                         break;
-                    /*case "s" :
+                    case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
                         storeData (hotel);
                         break;
-                    case "l" :
+                    /*case "l" :
                         //loads customer data from txt file
                         subloop = 0;
                         loadData (hotel);
@@ -214,7 +214,7 @@ public class HotelT3Array
         }
     }
     //store data method
-    private static void storeData(String hRooms[])
+    private static void storeData(String hRooms[][])
     {
         //create a file
         try
@@ -225,9 +225,10 @@ public class HotelT3Array
             try
             {
                 FileWriter rWriter = new FileWriter("rooms.txt");
-                for (int x = 0; x < hRooms.length; x++ )
+                for (int x = 0; x < 8; x++ )
                 {
-                    rWriter.write(x + "|" + hRooms[x] + "\n");
+                    rWriter.write(x + "|" + hRooms[x][0] + "|" + hRooms[x][1] + "|" +
+                            "" + hRooms[x][2] + "|" + hRooms[x][3] +"\n");
                 }
                 rWriter.close();
                 System.out.println("Data Saved Successfully !");
