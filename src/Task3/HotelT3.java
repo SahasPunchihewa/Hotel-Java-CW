@@ -45,12 +45,12 @@ public class HotelT3
                         //stops the program
                         subloop = 0;
                         break mainloop;
-                    /*case "v" :
+                    case "v" :
                         //view all rooms
                         viewAll (hotel);
                         subloop = 0;
                         break;
-                    case  "a" :
+                    /*case  "a" :
                         //add new customer
                         subloop = 0;
                         addCustomer (hotel);
@@ -105,7 +105,7 @@ public class HotelT3
             guestList.put(x,guest);
         }
         System.out.println ( "initialise ");
-    }/*
+    }
     //view all rooms method
     private static void viewAll(HashMap<Integer, Room> hotelRoom)
     {
@@ -124,7 +124,7 @@ public class HotelT3
                 System.out.println("Room " + x + " occupied by " + cName);
             }
         }
-    }
+    }/*
     //view empty rooms method
     private static void viewEmpty(HashMap<Integer, Room> hotelRoom)
     {
