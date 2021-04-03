@@ -82,12 +82,12 @@ public class HotelT3
                         subloop = 0;
                         loadData (hotel,customer);
                         break;
-                    /*case "o" :
+                    case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
                         sortData (hotel);
                         break;
-                    */default :
+                    default :
                         //repeat menu input when given input is wrong
                         System.out.println("Please Enter A Correct Command !");
                 }
@@ -290,7 +290,7 @@ public class HotelT3
             System.out.println("Cannot Find The File");
             //e.printStackTrace();
         }
-    }/*
+    }
     //sort data method
     private static void sortData(HashMap<Integer, Room> hRooms)
     {
@@ -323,7 +323,7 @@ public class HotelT3
                 System.out.println(room.getCusName());
             }
         }
-    }*/
+    }
 }
 
 /*References
