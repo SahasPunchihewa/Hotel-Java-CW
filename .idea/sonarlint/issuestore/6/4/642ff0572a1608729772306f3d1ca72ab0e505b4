@@ -1,0 +1,62 @@
+
+[	java:S106ó"9Replace this use of System.out or System.err by a logger.(øê«Äùÿÿÿÿ8Ò€£á‰/
+V	java:S106ç"9Replace this use of System.out or System.err by a logger.(É£´Ä8Ò€£á‰/
+V	java:S106Â"9Replace this use of System.out or System.err by a logger.(Îª¥Ò8Ò€£á‰/
+V	java:S106Ø"9Replace this use of System.out or System.err by a logger.(±Æ¡‡8Ò€£á‰/
+[	java:S106±"9Replace this use of System.out or System.err by a logger.(”ßı¯şÿÿÿÿ8äÁÄá‰/
+V	java:S106µ"9Replace this use of System.out or System.err by a logger.(‹ûŠğ8äÁÄá‰/
+_	java:S899ÿ"BDo something with the "boolean" value returned by "createNewFile".(„š‘8Ò€£á‰/
+k
+java:S2095ƒ"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(û·¨âşÿÿÿÿ8Ò€£á‰/
+Q
+java:S1119";Refactor the code to remove this label and the need for it.(ş‰¢¥
+V	java:S106¯"9Replace this use of System.out or System.err by a logger.(†œ§İ8äÁÄá‰/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡î¿Áùÿÿÿÿ
+o
+java:S1192ş"LDefine a constant instead of duplicating this literal "roomst4.txt" 3 times.(ê˜×—ùÿÿÿÿ8Ò€£á‰/
+[	java:S106Ñ"9Replace this use of System.out or System.err by a logger.(â×šûÿÿÿÿ8Ò€£á‰/
+H
+java:S1481"-Remove this unused "roomName" local variable.(Ú«ƒñşÿÿÿÿ
+[	java:S106·"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8äÁÄá‰/
+X
+java:S1141"5Extract this nested try block into a separate method.(ç£êúÿÿÿÿ8Ò€£á‰/
+N	java:S106"9Replace this use of System.out or System.err by a logger.(·™œ
+S	java:S106k"9Replace this use of System.out or System.err by a logger.(¯Îìüÿÿÿÿ
+Y	java:S125"<This block of commented-out lines of code should be removed.(†€éˆ8Ò€£á‰/
+V	java:S106®"9Replace this use of System.out or System.err by a logger.(¼ºªƒ8Ò€£á‰/
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(»—§ß
+S	java:S106"9Replace this use of System.out or System.err by a logger.(º˜ŞÍüÿÿÿÿ
+N	java:S106}"9Replace this use of System.out or System.err by a logger.(¸«íª
+V
+java:S1854.";Remove this useless assignment to local variable "subloop".(…¦ÕÓÿÿÿÿÿ
+[	java:S106¤"9Replace this use of System.out or System.err by a logger.(œÆñ²ùÿÿÿÿ8¥É§á‰/
+S	java:S106""9Replace this use of System.out or System.err by a logger.(çÅ×ûÿÿÿÿ
+G
+java:S1481",Remove this unused "roomNum" local variable.(¡â¯ºùÿÿÿÿ
+Y	java:S125–"<This block of commented-out lines of code should be removed.(†€éˆ8Ò€£á‰/
+N	java:S106y"9Replace this use of System.out or System.err by a logger.(×óà›
+u	java:S135—"YReduce the total number of break and continue statements in this loop to use at most one.(¤èÄ78Ö‚Áá‰/
+V	java:S106‘"9Replace this use of System.out or System.err by a logger.(­İùŸ8Ò€£á‰/
+Y	java:S125´"<This block of commented-out lines of code should be removed.(†€éˆ8Ò€£á‰/
+U	java:S106©"9Replace this use of System.out or System.err by a logger.(‚Õi8«ñ½á‰/
+[	java:S106Ô"9Replace this use of System.out or System.err by a logger.(š‹ë»úÿÿÿÿ8Ò€£á‰/
+[	java:S106³"9Replace this use of System.out or System.err by a logger.(ğ‘ñÇùÿÿÿÿ8Ò€£á‰/
+N	java:S106["9Replace this use of System.out or System.err by a logger.(İÙóü
+P
+java:S3252é"3Use static access with "java.util.Map" for "Entry".(ÆÕÃ8Ò€£á‰/
+[	java:S106¥"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8£¡Èâ‰/
+[	java:S106§"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Ò€£á‰/
+T	java:S106"9Replace this use of System.out or System.err by a logger.(‹Ÿ¾£úÿÿÿÿ
+O	java:S106š"9Replace this use of System.out or System.err by a logger.(Ìßô‚
+V	java:S106—"9Replace this use of System.out or System.err by a logger.(­İùŸ8Ò€£á‰/
+Y	java:S125Ç"<This block of commented-out lines of code should be removed.(†€éˆ8Ò€£á‰/
+N	java:S106("9Replace this use of System.out or System.err by a logger.(¤Ë„
+[	java:S106³"9Replace this use of System.out or System.err by a logger.(ÃŞØ†úÿÿÿÿ8äÁÄá‰/
+[	java:S106à"9Replace this use of System.out or System.err by a logger.(êÃËÆüÿÿÿÿ8Ò€£á‰/
+[	java:S106Œ"9Replace this use of System.out or System.err by a logger.(ÂüøÏÿÿÿÿÿ8Ò€£á‰/
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(„åúÆúÿÿÿÿ
+[	java:S106È"9Replace this use of System.out or System.err by a logger.(Ñ‹ôòşÿÿÿÿ8Ò€£á‰/
+c
+java:S1192y"FDefine a constant instead of duplicating this literal "Room " 3 times.(×óà›8©¡å‰/

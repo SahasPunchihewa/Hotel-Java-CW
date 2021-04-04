@@ -1,11 +1,11 @@
 package Task4;
 
-public class PersonT4
+public class Person
 {
     private String firstName,surName;
     private double creditCard;
 
-    public PersonT4(String firstName, String surName, double creditCard)
+    public Person(String firstName, String surName, double creditCard)
     {
         this.firstName = firstName;
         this.surName = surName;

@@ -1,0 +1,65 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢þÖ¦øÿÿÿÿ
+N	java:S106V"9Replace this use of System.out or System.err by a logger.(ÝÙóü
+M	java:S106"9Replace this use of System.out or System.err by a logger.(Ñºþ
+R	java:S125›"<This block of commented-out lines of code should be removed.(†€éˆ
+T	java:S106ð"9Replace this use of System.out or System.err by a logger.(ð‘ñÇùÿÿÿÿ
+O	java:S106°"9Replace this use of System.out or System.err by a logger.(ˆÍŽ£
+T	java:S106Ž"9Replace this use of System.out or System.err by a logger.(ì‘÷Úýÿÿÿÿ
+R	java:S125Ñ"<This block of commented-out lines of code should be removed.(†€éˆ
+a
+java:S1192k"FDefine a constant instead of duplicating this literal "room " 3 times.(‹Ÿ¾£úÿÿÿÿ
+O	java:S106Ø"9Replace this use of System.out or System.err by a logger.(­ÝùŸ
+O
+java:S1197´"8Move the array designator from the variable to the type.(õüò‹
+S
+java:S1197c"8Move the array designator from the variable to the type.(ñïÉ©øÿÿÿÿ
+G
+java:S1481",Remove this unused "roomNum" local variable.(¡â¯ºùÿÿÿÿ
+X	java:S899Ã"BDo something with the "boolean" value returned by "createNewFile".(„š‘
+S	java:S106|"9Replace this use of System.out or System.err by a logger.(‹Ÿ¾£úÿÿÿÿ
+V
+java:S1854)";Remove this useless assignment to local variable "subloop".(…¦ÕÓÿÿÿÿÿ
+O	java:S106‡"9Replace this use of System.out or System.err by a logger.(Ìßô‚
+T	java:S106º"9Replace this use of System.out or System.err by a logger.(³£øÿÿÿÿ
+a
+java:S1192Â"JDefine a constant instead of duplicating this literal "rooms.txt" 3 times.(¬¿ÿƒ
+_
+java:S2095Ç"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(ƒ²¢þ
+S
+java:S1197t"8Move the array designator from the variable to the type.(Õ÷Â‚üÿÿÿÿ
+N
+java:S1197½"8Move the array designator from the variable to the type.(’Êv
+T	java:S106Í"9Replace this use of System.out or System.err by a logger.(ÂüøÏÿÿÿÿÿ
+T
+java:S1197"8Move the array designator from the variable to the type.(ûèšÈýÿÿÿÿ
+O
+java:S1197¢"8Move the array designator from the variable to the type.(Îþ¼Á
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ŽçÅ×ûÿÿÿÿ
+T	java:S106ª"9Replace this use of System.out or System.err by a logger.(Ò¡·Ïùÿÿÿÿ
+O	java:S106·"9Replace this use of System.out or System.err by a logger.(ð„×Ï
+Q
+java:S1119";Refactor the code to remove this label and the need for it.(þ‰¢¥
+Q
+java:S1141Å"5Extract this nested try block into a separate method.(ç£êúÿÿÿÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(¤Ë„
+S	java:S106o"9Replace this use of System.out or System.err by a logger.(µ’œúþÿÿÿÿ
+O	java:S106–"9Replace this use of System.out or System.err by a logger.(Îª¥Ò
+N
+java:S1197\"8Move the array designator from the variable to the type.(º¥ž
+R	java:S125×"<This block of commented-out lines of code should be removed.(†€éˆ
+T	java:S106¥"9Replace this use of System.out or System.err by a logger.(Ã­µýÿÿÿÿ
+S	java:S106k"9Replace this use of System.out or System.err by a logger.(‹Ÿ¾£úÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(·™œ
+T
+java:S1197õ"8Move the array designator from the variable to the type.(Ò×ûÜýÿÿÿÿ
+T	java:S106œ"9Replace this use of System.out or System.err by a logger.(Ñ‹ôòþÿÿÿÿ
+T
+java:S1197Ü"8Move the array designator from the variable to the type.(æ—À¶þÿÿÿÿ
+O	java:S106ë"9Replace this use of System.out or System.err by a logger.(¼ºªƒ
+S	java:S106`"9Replace this use of System.out or System.err by a logger.(Ž¯Îìüÿÿÿÿ
+H
+java:S1481"-Remove this unused "roomName" local variable.(Ú«ƒñþÿÿÿÿ
+R	java:S125ñ"<This block of commented-out lines of code should be removed.(†€éˆ
+O	java:S106Ò"9Replace this use of System.out or System.err by a logger.(­ÝùŸ
+T	java:S106Œ"9Replace this use of System.out or System.err by a logger.(¿´Ü´ûÿÿÿÿ

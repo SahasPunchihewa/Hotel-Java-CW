@@ -22,8 +22,8 @@ public class HotelExample
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a PersonT4\n" +
-                    "e - Display Empty Rooms\nd - Delete PersonT4 From RoomT4\nf - Find RoomT4 From PersonT4\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -162,12 +162,12 @@ public class HotelExample
     private static void deleteCustomer(String hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-7) to Delete A PersonT4" );
+        System.out.println("Enter room number (0-7) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         if(hRooms[rNumber].equals("e"))
         {
-            System.out.println("This RoomT4 Is Already Empty");
+            System.out.println("This Room Is Already Empty");
         }
         else
         {
@@ -180,10 +180,10 @@ public class HotelExample
     private static void findRoom(String hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter PersonT4 Name :");
+        System.out.println("Enter Person Name :");
         String rName = cInput.next();
         int rNumber = Arrays.asList(hRooms).indexOf(rName);
-        System.out.println("RoomT4 " + rNumber + " is occupied by " + rName);
+        System.out.println("Room " + rNumber + " is occupied by " + rName);
     }
     //store data method
     private static void storeData(String hRooms[])

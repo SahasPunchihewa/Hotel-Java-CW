@@ -1,11 +1,11 @@
 package Task4;
 
-public class RoomT4
+public class Room
 {
     private String cusName;
     private int noCustomer;
 
-    public RoomT4(String cusName, int noCustomer)
+    public Room(String cusName, int noCustomer)
     {
         this.cusName = cusName;
         this.noCustomer = noCustomer;

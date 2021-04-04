@@ -93,13 +93,13 @@ public class Hotel
         }
     }
     //initialise method
-    private static void initialise(Room hotelRef[],Person guestList[])
+    private static void initialise(Room hotelRef[], Person guestList[])
     {
         //insert 'e' for all rooms
         for (int x = 0; x <8; x++ )
         {
             Room room=new Room("e",0);
-            Person guest=new Task3Class.Person("e","e",0);
+            Person guest=new Person("e","e",0);
             hotelRef[x]=room;
             guestList[x]=guest;
         }
@@ -141,7 +141,7 @@ public class Hotel
         }
     }
     //add customer method
-    private static void addCustomer(Room hRooms[],Person guestList[])
+    private static void addCustomer(Room hRooms[], Person guestList[])
     {
         //loop for get correct input
         while (true)
@@ -158,7 +158,7 @@ public class Hotel
                     String fName = cInput.next();
                     System.out.println("Enter Last Name :" ) ;
                     String lName = cInput.next();
-                    System.out.println("Enter Number Of Customers In The RoomT4 :" ) ;
+                    System.out.println("Enter Number Of Customers In The Room :" ) ;
                     int noCus = cInput.nextInt();
                     System.out.println("Enter Credit Card Number :" ) ;
                     double  cardNo= cInput.nextDouble();
@@ -187,7 +187,7 @@ public class Hotel
     private static void deleteCustomer(Room hRooms[], Person guestList[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-7) to Delete A PersonT4" );
+        System.out.println("Enter room number (0-7) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         Room room=hRooms[rNumber];

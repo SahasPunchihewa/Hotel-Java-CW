@@ -25,8 +25,8 @@ public class HotelT3Array
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a PersonT4\n" +
-                    "e - Display Empty Rooms\nd - Delete PersonT4 From Room\nf - Find Room From PersonT4\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -180,7 +180,7 @@ public class HotelT3Array
     private static void deleteCustomer(String hRooms[][])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-7) to Delete A PersonT4" );
+        System.out.println("Enter room number (0-7) to Delete A Person" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         if(hRooms[rNumber][0].equals("e"))
@@ -198,7 +198,7 @@ public class HotelT3Array
     private static void findRoom(String hRooms[][])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter PersonT4 Name :");
+        System.out.println("Enter Person Name :");
         String rName = cInput.next();
         for(int i=0;i<8;i++)
         {
