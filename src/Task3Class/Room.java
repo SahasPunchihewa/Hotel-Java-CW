@@ -1,11 +1,11 @@
 package Task3Class;
 
-public class RoomT3
+public class Room
 {
     private String cusName;
     private int noCustomer;
 
-    public RoomT3(String cusName, int noCustomer)
+    public Room(String cusName, int noCustomer)
     {
         this.cusName = cusName;
         this.noCustomer = noCustomer;

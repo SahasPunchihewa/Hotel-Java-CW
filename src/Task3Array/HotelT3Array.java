@@ -1,13 +1,9 @@
 package Task3Array;
 
-import Task3Class.Person;
-import Task3Class.RoomT3;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
