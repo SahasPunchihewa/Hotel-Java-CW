@@ -127,8 +127,9 @@ public class Hotel
         }
     }
     //view empty rooms method
-    private static void viewEmpty(Room hotelRoom[])
+    private static int viewEmpty(Room hotelRoom[])
     {
+        int rCount=0;
         //loop for find empty rooms
         for (int x = 0; x < 8; x++ )
         {
@@ -138,8 +139,10 @@ public class Hotel
             if (rName.equals("e"))
             {
                 System.out.println("room " + x + " is empty");
+                rCount++;
             }
         }
+        return rCount;
     }
     private static int emptyCount(Room hotelRoom[])
     {
@@ -163,7 +166,25 @@ public class Hotel
         //loop for get correct input
         while (true)
         {
+            int rCount=emptyCount(hRooms);
             Scanner cInput=new Scanner(System.in);
+            if(rCount==0)
+            {
+                System.out.println("Sorry All The Rooms Are Booked You Will Be Added To The Queue\n");
+                System.out.println("Enter First name :" ) ;
+                String fName = cInput.next();
+                System.out.println("Enter Last Name :" ) ;
+                String lName = cInput.next();
+                System.out.println("Enter Number Of Customers In The Room :" ) ;
+                int noCus = cInput.nextInt();
+                System.out.println("Enter Credit Card Number :" ) ;
+                double  cardNo= cInput.nextDouble();
+                System.out.println();
+                Room room = new Room(fName,noCus);
+                Person guest=new Person(fName,lName,cardNo);
+                RQueue.enQueue(room,guest);
+                break;
+            }
             System.out.println("Enter room number (0-7)" );
             try
             {
@@ -176,24 +197,7 @@ public class Hotel
                     {
                         System.out.println("This Room Is Booked Try Another One From Below !");
                         System.out.println();
-                        int rCount=emptyCount(hRooms);
-                        if(rCount==0)
-                        {
-                            System.out.println("Sorry All The Rooms Are Booked You Will Be Added To The Queue\n");
-                            System.out.println("Enter First name :" ) ;
-                            String fName = cInput.next();
-                            System.out.println("Enter Last Name :" ) ;
-                            String lName = cInput.next();
-                            System.out.println("Enter Number Of Customers In The Room :" ) ;
-                            int noCus = cInput.nextInt();
-                            System.out.println("Enter Credit Card Number :" ) ;
-                            double  cardNo= cInput.nextDouble();
-                            System.out.println();
-                            Room room = new Room(fName,noCus);
-                            Person guest=new Person(fName,lName,cardNo);
-                            RQueue.enQueue(room,guest);
-                            break;
-                        }
+                        viewEmpty(hRooms);
                     }
                     else
                     {
@@ -327,7 +331,6 @@ public class Hotel
             while (txtReader.hasNextLine())
             {
                 String[] room = txtReader.nextLine().split("\\|");
-                System.out.println();
                 Room room1=new Room(room[1],Integer.parseInt(room[2]));
                 Person guest=new Person(room[1],room[3],Double.parseDouble(room[4]));
                 hRooms[i]=room1;
