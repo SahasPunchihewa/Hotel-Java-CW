@@ -104,12 +104,12 @@ public class Hotel
         System.out.println ( "initialise ");
     }
     //view all rooms method
-    private static void viewAll(HashMap<Integer, Room> hotelRoom)
+    private static void viewAll(Room hotelRoom[])
     {
         //loops for all rooms
         for (int x = 0; x <8; x++ )
         {
-            Room room=hotelRoom.get(x);
+            Room room=hotelRoom[x];
             String cName=room.getCusName();
             //checks for empty rooms
             if (cName.equals("e"))
@@ -123,12 +123,12 @@ public class Hotel
         }
     }
     //view empty rooms method
-    private static void viewEmpty(HashMap<Integer, Room> hotelRoom)
+    private static void viewEmpty(Room hotelRoom[])
     {
         //loop for find empty rooms
         for (int x = 0; x < 8; x++ )
         {
-            Room room=hotelRoom.get(x);
+            Room room=hotelRoom[x];
             String rName=room.getCusName();
             //checks of the room is empty or not
             if (rName.equals("e"))
@@ -138,7 +138,7 @@ public class Hotel
         }
     }
     //add customer method
-    private static void addCustomer(HashMap<Integer, Room> hRooms)
+    private static void addCustomer(Room hRooms[])
     {
         //loop for get correct input
         while (true)
@@ -154,7 +154,7 @@ public class Hotel
                     System.out.println("Enter name for room " + rNumber +" :" ) ;
                     String rName = cInput.next();
                     Room room = new Room(rName);
-                    hRooms.put(rNumber,room);
+                    hRooms[rNumber]=room;
                     break;
                 }
                 //if room number is out of range above will be looped
@@ -172,13 +172,13 @@ public class Hotel
         }
     }
     //delete customer method
-    private static void deleteCustomer(HashMap<Integer, Room> hRooms)
+    private static void deleteCustomer(Room hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter room number (0-7) to Delete A PersonT4" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
-        Room room=hRooms.get(rNumber);
+        Room room=hRooms[rNumber];
         String rName=room.getCusName();
         if(rName.equals("e"))
         {
@@ -187,7 +187,7 @@ public class Hotel
         else
         {
             Room newroom=new Room("e");
-            hRooms.put(rNumber,newroom);
+            hRooms[rNumber]=newroom;
             System.out.println("Successfully Deleted "+rName);
         }
     }
