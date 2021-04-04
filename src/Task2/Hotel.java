@@ -26,8 +26,8 @@ public class Hotel
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a PersonT4\n" +
-                    "e - Display Empty Rooms\nd - Delete PersonT4 From RoomT4\nf - Find RoomT4 From PersonT4\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
+                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -114,11 +114,11 @@ public class Hotel
             //checks for empty rooms
             if (cName.equals("e"))
             {
-                System.out.println("RoomT4 " + x + " is empty");
+                System.out.println("Room " + x + " is empty");
             }
             else
             {
-                System.out.println("RoomT4 " + x + " occupied by " + cName);
+                System.out.println("Room " + x + " occupied by " + cName);
             }
         }
     }
@@ -182,7 +182,7 @@ public class Hotel
         String rName=room.getCusName();
         if(rName.equals("e"))
         {
-            System.out.println("This RoomT4 Is Already Empty");
+            System.out.println("This Room Is Already Empty");
         }
         else
         {
@@ -195,19 +195,19 @@ public class Hotel
     private static void findRoom(Room hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter PersonT4 Name :");
+        System.out.println("Enter Person Name :");
         String rName = cInput.next();
         for (int x=0;x<8;x++)
         {
             Room room = hRooms[x];
             if(room.getCusName().equals(rName))
             {
-                System.out.println("RoomT4 " + x + " is occupied by " + rName);
+                System.out.println("Room " + x + " is occupied by " + rName);
             }
         }
     }
     //store data method
-    private static void storeData(HashMap<Integer, Room> hRooms)
+    private static void storeData(Room hRooms[])
     {
         //create a file
         try
@@ -220,7 +220,7 @@ public class Hotel
                 FileWriter rWriter = new FileWriter("rooms.txt");
                 for (int x = 0; x < 8; x++ )
                 {
-                    Room room=hRooms.get(x);
+                    Room room=hRooms[x];
                     rWriter.write(x + "|" + room.getCusName() + "\n");
                 }
                 rWriter.close();
@@ -239,7 +239,7 @@ public class Hotel
         }
     }
     //load data method
-    private static void loadData(HashMap<Integer, Room> hRooms)
+    private static void loadData(Room hRooms[])
     {
         //imports text file
         try
@@ -252,7 +252,7 @@ public class Hotel
             {
                 String[] room = txtReader.nextLine().split("\\|");
                 Room room1=new Room(room[1]);
-                hRooms.put(i,room1);
+                hRooms[i]=room1;
                 i++;
             }
             System.out.println("Successfully Loaded !");
@@ -265,32 +265,32 @@ public class Hotel
         }
     }
     //sort data method
-    private static void sortData(HashMap<Integer, Room> hRooms)
+    private static void sortData(Room hRooms[])
     {
         //create sort data array
-        HashMap<Integer, Room> sortedRooms = hRooms;
+        Room sortedRooms[] = hRooms;
         for(int j = 0; j < 8; j++)
         {
             //compare values by name
             for (int i = 0; i < 7; i++)
             {
-                Room room1=sortedRooms.get(i);
-                Room room2=sortedRooms.get(i+1);
+                Room room1=sortedRooms[i];
+                Room room2=sortedRooms[i+1];
                 String tmp = room1.getCusName();
                 String tmp2 = room2.getCusName();
                 if(tmp.compareTo(tmp2) >0)
                 {
                     room1.setCusName(tmp2);
                     room2.setCusName(tmp);
-                    sortedRooms.put(i,room1);
-                    sortedRooms.put(i+1,room2);
+                    sortedRooms[i]=room1;
+                    sortedRooms[i+1]=room2;
                 }
             }
         }
         //prints sorted names without empty values
         for (int x = 0; x < 8; x++ )
         {
-            Room room=sortedRooms.get(x);
+            Room room=sortedRooms[x];
             if (!room.getCusName().equals("e"))
             {
                 System.out.println(room.getCusName());
