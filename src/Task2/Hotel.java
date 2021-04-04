@@ -17,7 +17,7 @@ public class Hotel
         Scanner input = new Scanner(System.in);
         String roomName = "";
         int roomNum = 0;
-        HashMap<Integer,Room> hotel=new HashMap<Integer, Room>();
+        Room hotel[]=new Room[8];
         //call initialize method
         initialise (hotel);
         //loop for repeating main menu
@@ -26,8 +26,8 @@ public class Hotel
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From RoomT3\nf - Find RoomT3 From Person\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a PersonT4\n" +
+                    "e - Display Empty Rooms\nd - Delete PersonT4 From RoomT4\nf - Find RoomT4 From PersonT4\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -93,13 +93,13 @@ public class Hotel
         }
     }
     //initialise method
-    private static void initialise(HashMap<Integer, Room> hotelRef)
+    private static void initialise(Room hotelRef[])
     {
         //insert 'e' for all rooms
         for (int x = 0; x <8; x++ )
         {
             Room room=new Room("e");
-            hotelRef.put(x,room);
+            hotelRef[x]=room;
         }
         System.out.println ( "initialise ");
     }
@@ -114,11 +114,11 @@ public class Hotel
             //checks for empty rooms
             if (cName.equals("e"))
             {
-                System.out.println("RoomT3 " + x + " is empty");
+                System.out.println("RoomT4 " + x + " is empty");
             }
             else
             {
-                System.out.println("RoomT3 " + x + " occupied by " + cName);
+                System.out.println("RoomT4 " + x + " occupied by " + cName);
             }
         }
     }
@@ -175,14 +175,14 @@ public class Hotel
     private static void deleteCustomer(HashMap<Integer, Room> hRooms)
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-7) to Delete A Person" );
+        System.out.println("Enter room number (0-7) to Delete A PersonT4" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         Room room=hRooms.get(rNumber);
         String rName=room.getCusName();
         if(rName.equals("e"))
         {
-            System.out.println("This RoomT3 Is Already Empty");
+            System.out.println("This RoomT4 Is Already Empty");
         }
         else
         {
@@ -195,7 +195,7 @@ public class Hotel
     private static void findRoom(HashMap<Integer, Room> hRooms)
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter Person Name :");
+        System.out.println("Enter PersonT4 Name :");
         String rName = cInput.next();
         for (HashMap.Entry<Integer, Room> set : hRooms.entrySet())
         {
@@ -203,7 +203,7 @@ public class Hotel
             int rNumber= set.getKey();
             if(room.getCusName().equals(rName))
             {
-                System.out.println("RoomT3 " + rNumber + " is occupied by " + rName);
+                System.out.println("RoomT4 " + rNumber + " is occupied by " + rName);
             }
         }
     }

@@ -1,17 +1,14 @@
-package Task3Array;
-
-import Task3Class.Person;
-import Task3Class.RoomT3;
+package Task4;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HotelT3Array
+public class HotelT4
 {
     //Main method
     public static void main(String[] args)
@@ -20,9 +17,10 @@ public class HotelT3Array
         Scanner input = new Scanner(System.in);
         String roomName = "";
         int roomNum = 0;
-        String[][] hotel = new String[8][4];
+        HashMap<Integer, RoomT4> hotel=new HashMap<Integer, RoomT4>();
+        HashMap<Integer, PersonT4> customer=new HashMap<Integer, PersonT4>();
         //call initialize method
-        initialise (hotel);
+        initialise (hotel,customer);
         //loop for repeating main menu
         mainloop:
         while (true)
@@ -55,7 +53,7 @@ public class HotelT3Array
                     case  "a" :
                         //add new customer
                         subloop = 0;
-                        addCustomer (hotel);
+                        addCustomer (hotel,customer);
                         viewAll (hotel);
                         break;
                     case "e" :
@@ -66,22 +64,22 @@ public class HotelT3Array
                     case "d" :
                         //delete customer
                         subloop = 0;
-                        deleteCustomer (hotel);
+                        deleteCustomer (hotel,customer);
                         break;
                     case "f" :
                         //find room number when customer name given
                         subloop = 0;
-                        findRoom (hotel);
+                        findRoom (hotel,customer);
                         break;
                     case "s" :
                         //saves customer data into a txt file
                         subloop = 0;
-                        storeData (hotel);
+                        storeData (hotel,customer);
                         break;
                     case "l" :
                         //loads customer data from txt file
                         subloop = 0;
-                        loadData (hotel);
+                        loadData (hotel,customer);
                         break;
                     case "o" :
                         //sorts customer names alphabetically
@@ -96,50 +94,58 @@ public class HotelT3Array
         }
     }
     //initialise method
-    private static void initialise( String hotelRef[][] )
+    private static void initialise(HashMap<Integer, RoomT4> hotelRef, HashMap<Integer, PersonT4> guestList)
     {
         //insert 'e' for all rooms
         for (int x = 0; x <8; x++ )
         {
-            for(int i=0;i<4;i++)
-            {
-                hotelRef[x][i] = "e";
-            }
+            RoomT4 room=new RoomT4("e",0);
+            PersonT4 guest=new PersonT4("e","e",0);
+            hotelRef.put(x,room);
+            guestList.put(x,guest);
         }
         System.out.println ( "initialise ");
     }
     //view all rooms method
-    private static void viewAll(String hotelRoom[][])
+    private static void viewAll(HashMap<Integer, RoomT4> hotelRoom)
     {
         //loops for all rooms
         for (int x = 0; x <8; x++ )
         {
+            RoomT4 room=hotelRoom.get(x);
+            String cName=room.getCusName();
+            int cusNo=room.getNoCustomer();
             //checks for empty rooms
-            if (hotelRoom[x][0].equals("e"))
+            if (cName.equals("e"))
             {
-                System.out.println("room " + x + " is empty");
+                System.out.println("RoomT4 " + x + " is empty");
             }
             else
             {
-                System.out.println("room " + x + " occupied by " + hotelRoom[x][0]+" "+hotelRoom[x][1]);
+                System.out.println("Room " + x + " occupied by " + cName + " And Have "+ cusNo + " Guests");
             }
         }
     }
     //view empty rooms method
-    private static void viewEmpty(String hotelRoom[][])
+    private static int viewEmpty(HashMap<Integer, RoomT4> hotelRoom)
     {
+        int rCount=0;
         //loop for find empty rooms
         for (int x = 0; x < 8; x++ )
         {
+            RoomT4 room=hotelRoom.get(x);
+            String rName=room.getCusName();
             //checks of the room is empty or not
-            if (hotelRoom[x][0].equals("e"))
+            if (rName.equals("e"))
             {
                 System.out.println("room " + x + " is empty");
+                rCount++;
             }
         }
+        return rCount;
     }
     //add customer method
-    private static void addCustomer(String hRooms[][])
+    private static void addCustomer(HashMap<Integer, RoomT4> hRooms, HashMap<Integer, PersonT4> guestList)
     {
         //loop for get correct input
         while (true)
@@ -152,20 +158,35 @@ public class HotelT3Array
                 //checks is room number is between 0 and 5
                 if((rNumber >= 0) && (rNumber <= 7))
                 {
-                    System.out.println("Enter First name :" ) ;
-                    String fName = cInput.next();
-                    System.out.println("Enter Last Name :" ) ;
-                    String lName = cInput.next();
-                    System.out.println("Enter Number Of Customers In The Room :" ) ;
-                    int noCus = cInput.nextInt();
-                    System.out.println("Enter Credit Card Number :" ) ;
-                    double  cardNo= cInput.nextDouble();
-                    System.out.println();
-                    hRooms[rNumber][0] = fName ;
-                    hRooms[rNumber][1] = lName ;
-                    hRooms[rNumber][2] = String.valueOf(noCus) ;
-                    hRooms[rNumber][3] = String.valueOf(cardNo) ;
-                    break;
+                    RoomT4 tmproom=hRooms.get(rNumber);
+                    if(!tmproom.getCusName().equals("e"))
+                    {
+                        System.out.println("This Room Is Booked Try Another One From Below !");
+                        System.out.println();
+                        int rCount=viewEmpty(hRooms);
+                        if(rCount==0)
+                        {
+                            System.out.println("Sorry All The Rooms Are Booked You Will Be Added To The Queue\n");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("Enter First name :" ) ;
+                        String fName = cInput.next();
+                        System.out.println("Enter Last Name :" ) ;
+                        String lName = cInput.next();
+                        System.out.println("Enter Number Of Customers In The RoomT4 :" ) ;
+                        int noCus = cInput.nextInt();
+                        System.out.println("Enter Credit Card Number :" ) ;
+                        double  cardNo= cInput.nextDouble();
+                        System.out.println();
+                        RoomT4 room = new RoomT4(fName,noCus);
+                        PersonT4 guest=new PersonT4(fName,lName,cardNo);
+                        hRooms.put(rNumber,room);
+                        guestList.put(rNumber,guest);
+                        break;
+                    }
                 }
                 //if room number is out of range above will be looped
                 else
@@ -178,57 +199,70 @@ public class HotelT3Array
                 //e.printStackTrace();
                 System.out.println("Please Enter Valid Input");
             }
+
         }
     }
     //delete customer method
-    private static void deleteCustomer(String hRooms[][])
+    private static void deleteCustomer(HashMap<Integer, RoomT4> hRooms, HashMap<Integer, PersonT4> guestList)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter room number (0-7) to Delete A PersonT4" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
-        if(hRooms[rNumber][0].equals("e"))
+        RoomT4 room=hRooms.get(rNumber);
+        String rName=room.getCusName();
+        if(rName.equals("e"))
         {
             System.out.println("This Room Is Already Empty");
         }
         else
         {
-            String rname = hRooms[rNumber][0];
-            hRooms[rNumber][0] = "e";
-            System.out.println("Successfully Deleted "+rname);
+            RoomT4 newroom=new RoomT4("e",0);
+            PersonT4 gusest=new PersonT4("e","e",0);
+            hRooms.put(rNumber,newroom);
+            guestList.put(rNumber,gusest);
+            System.out.println("Successfully Deleted "+rName);
         }
     }
     //find room method
-    private static void findRoom(String hRooms[][])
+    private static void findRoom(HashMap<Integer, RoomT4> hRooms, HashMap<Integer, PersonT4> guestList)
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter PersonT4 Name :");
         String rName = cInput.next();
-        for(int i=0;i<8;i++)
+        for (HashMap.Entry<Integer, RoomT4> set : hRooms.entrySet())
         {
-            if(hRooms[i][0].equals(rName))
+            RoomT4 room = set.getValue();
+            int rNumber= set.getKey();
+            int noCus=room.getNoCustomer();
+            PersonT4 guest=guestList.get(rNumber);
+            String lName=guest.getSurName();
+            double cardNo=guest.getCreditCard();
+            if(room.getCusName().equals(rName))
             {
-                System.out.println("Room " + i + " is occupied by " + rName+" "+hRooms[i][1]+"\n" +
-                        "\tGuests : "+hRooms[i][2]+"\n\tCredit Card Number : "+hRooms[i][3]);
+                System.out.println("Room " + rNumber + " is occupied by " + rName + " " +lName+
+                        "\n\tGuests : "+noCus+"\n\tCredit Card Number : "+cardNo);
             }
         }
     }
     //store data method
-    private static void storeData(String hRooms[][])
+    private static void storeData(HashMap<Integer, RoomT4> hRooms, HashMap<Integer, PersonT4> guestList)
     {
         //create a file
         try
         {
-            File rooms = new File("roomst3arr.txt");
+            File rooms = new File("roomst4.txt");
             rooms.createNewFile();
             //saves data to the file
             try
             {
-                FileWriter rWriter = new FileWriter("roomst3arr.txt");
+                FileWriter rWriter = new FileWriter("roomst4.txt");
                 for (int x = 0; x < 8; x++ )
                 {
-                    rWriter.write(x + "|" + hRooms[x][0] + "|" + hRooms[x][1] + "|" +
-                            "" + hRooms[x][2] + "|" + hRooms[x][3] +"\n");
+                    RoomT4 room=hRooms.get(x);
+                    PersonT4 guest=guestList.get(x);
+                    rWriter.write(x + "|" + room.getCusName() +"|"+room.getNoCustomer()+
+                            "|"+guest.getSurName()+ "|"+guest.getCreditCard()+"\n");
                 }
                 rWriter.close();
                 System.out.println("Data Saved Successfully !");
@@ -246,22 +280,23 @@ public class HotelT3Array
         }
     }
     //load data method
-    private static void loadData(String hRooms[][])
+    private static void loadData(HashMap<Integer, RoomT4> hRooms, HashMap<Integer, PersonT4> guestList)
     {
         //imports text file
         try
         {
-            File rooms = new File("roomst3arr.txt");
+            File rooms = new File("roomst4.txt");
             Scanner txtReader = new Scanner(rooms);
             int i = 0;
             //reds file line by line
             while (txtReader.hasNextLine())
             {
                 String[] room = txtReader.nextLine().split("\\|");
-                hRooms[i][0] = room[1];
-                hRooms[i][1] = room[2];
-                hRooms[i][2] = room[3];
-                hRooms[i][3] = room[4];
+                System.out.println();
+                RoomT4 room1=new RoomT4(room[1],Integer.parseInt(room[2]));
+                PersonT4 guest=new PersonT4(room[1],room[3],Double.parseDouble(room[4]));
+                hRooms.put(i,room1);
+                guestList.put(i,guest);
                 i++;
             }
             System.out.println("Successfully Loaded !");
@@ -274,42 +309,35 @@ public class HotelT3Array
         }
     }
     //sort data method
-    private static void sortData(String hRooms[][])
+    private static void sortData(HashMap<Integer, RoomT4> hRooms)
     {
         //create sort data array
-        String[][] sortedRooms = hRooms;
-        for(int j = 0; j < sortedRooms.length; j++)
+        HashMap<Integer, RoomT4> sortedRooms = hRooms;
+        for(int j = 0; j < 8; j++)
         {
             //compare values by name
-            for (int i = 0; i < sortedRooms.length-1; i++)
+            for (int i = 0; i < 7; i++)
             {
-                String tmpfn = sortedRooms[i][0];
-                String tmpfn2 = sortedRooms[i+1][0];
-                String tmpln = sortedRooms[i][1];
-                String tmpln2 = sortedRooms[i+1][1];
-                String tmpcn = sortedRooms[i][2];
-                String tmpcn2 = sortedRooms[i+1][2];
-                String tmpcarn = sortedRooms[i][3];
-                String tmpcarn2 = sortedRooms[i+1][3];
-                if(tmpfn.compareTo(tmpfn2) >0)
+                RoomT4 room1=sortedRooms.get(i);
+                RoomT4 room2=sortedRooms.get(i+1);
+                String tmp = room1.getCusName();
+                String tmp2 = room2.getCusName();
+                if(tmp.compareTo(tmp2) >0)
                 {
-                    sortedRooms[i][0] = tmpfn2;
-                    sortedRooms[i+1][0] = tmpfn;
-                    sortedRooms[i][1] = tmpln2;
-                    sortedRooms[i+1][1] = tmpln;
-                    sortedRooms[i][2] = tmpcn2;
-                    sortedRooms[i+1][2] = tmpcn;
-                    sortedRooms[i][3] = tmpcarn2;
-                    sortedRooms[i+1][3] = tmpcarn;
+                    room1.setCusName(tmp2);
+                    room2.setCusName(tmp);
+                    sortedRooms.put(i,room1);
+                    sortedRooms.put(i+1,room2);
                 }
             }
         }
         //prints sorted names without empty values
         for (int x = 0; x < 8; x++ )
         {
-            if (!sortedRooms[x][0].equals("e"))
+            RoomT4 room=sortedRooms.get(x);
+            if (!room.getCusName().equals("e"))
             {
-                System.out.println(sortedRooms[x][0]);
+                System.out.println(room.getCusName());
             }
         }
     }

@@ -27,8 +27,8 @@ public class HotelT3
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
+            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a PersonT4\n" +
+                    "e - Display Empty Rooms\nd - Delete PersonT4 From Room\nf - Find Room From PersonT4\n" +
                     "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
                     "\nx - Stop Program");
             System.out.println("------------------------------------------------------------------");
@@ -118,7 +118,7 @@ public class HotelT3
             //checks for empty rooms
             if (cName.equals("e"))
             {
-                System.out.println("RoomT3 " + x + " is empty");
+                System.out.println("Room " + x + " is empty");
             }
             else
             {
@@ -159,7 +159,7 @@ public class HotelT3
                     String fName = cInput.next();
                     System.out.println("Enter Last Name :" ) ;
                     String lName = cInput.next();
-                    System.out.println("Enter Number Of Customers In The RoomT3 :" ) ;
+                    System.out.println("Enter Number Of Customers In The RoomT4 :" ) ;
                     int noCus = cInput.nextInt();
                     System.out.println("Enter Credit Card Number :" ) ;
                     double  cardNo= cInput.nextDouble();
@@ -188,7 +188,7 @@ public class HotelT3
     private static void deleteCustomer(HashMap<Integer, RoomT3> hRooms, HashMap<Integer, Person> guestList)
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter room number (0-7) to Delete A Person" );
+        System.out.println("Enter room number (0-7) to Delete A PersonT4" );
         int rNumber = cInput.nextInt();
         //checks is entered room is empty or not
         RoomT3 room=hRooms.get(rNumber);
@@ -210,7 +210,7 @@ public class HotelT3
     private static void findRoom(HashMap<Integer, RoomT3> hRooms, HashMap<Integer,Person> guestList)
     {
         Scanner cInput = new Scanner(System.in);
-        System.out.println("Enter Person Name :");
+        System.out.println("Enter PersonT4 Name :");
         String rName = cInput.next();
         for (HashMap.Entry<Integer, RoomT3> set : hRooms.entrySet())
         {
@@ -233,12 +233,12 @@ public class HotelT3
         //create a file
         try
         {
-            File rooms = new File("rooms.txt");
+            File rooms = new File("roomst3.txt");
             rooms.createNewFile();
             //saves data to the file
             try
             {
-                FileWriter rWriter = new FileWriter("rooms.txt");
+                FileWriter rWriter = new FileWriter("roomst3.txt");
                 for (int x = 0; x < 8; x++ )
                 {
                     RoomT3 room=hRooms.get(x);
@@ -267,7 +267,7 @@ public class HotelT3
         //imports text file
         try
         {
-            File rooms = new File("rooms.txt");
+            File rooms = new File("roomst3.txt");
             Scanner txtReader = new Scanner(rooms);
             int i = 0;
             //reds file line by line
