@@ -192,18 +192,17 @@ public class Hotel
         }
     }
     //find room method
-    private static void findRoom(HashMap<Integer, Room> hRooms)
+    private static void findRoom(Room hRooms[])
     {
         Scanner cInput = new Scanner(System.in);
         System.out.println("Enter PersonT4 Name :");
         String rName = cInput.next();
-        for (HashMap.Entry<Integer, Room> set : hRooms.entrySet())
+        for (int x=0;x<8;x++)
         {
-            Room room = set.getValue();
-            int rNumber= set.getKey();
+            Room room = hRooms[x];
             if(room.getCusName().equals(rName))
             {
-                System.out.println("RoomT4 " + rNumber + " is occupied by " + rName);
+                System.out.println("RoomT4 " + x + " is occupied by " + rName);
             }
         }
     }
