@@ -1,10 +1,12 @@
 package Task4;
 
+import java.util.HashMap;
+
 public class RQueue
 {
     static int size=8;
-    static int front=0;
-    static int rear=0;
+    static int front=-1;
+    static int rear=-1;
     static Room[] hRooms =new Room[size];
     static Person[] guest =new Person[size];
 
@@ -19,14 +21,62 @@ public class RQueue
             rear=(rear+1)%size;
             hRooms[rear] = room;
             guest[rear]=customer;
+            if(front==-1)
+            {
+                front=0;
+            }
         }
     }
 
-    public Room deQueue()
+    public static Room deQueueRoom()
     {
-        Room room=hRooms[front];
-        front=(front+1)%size;
+        Room room;
+        if(front!=-1)
+        {
+            room=hRooms[front];
+            if(front==rear)
+            {
+                front=-1;
+                rear=-1;
+            }
+            else
+            {
+                front=(front+1)%size;
+            }
+        }
+        else
+        {
+            room=new Room("e",0);
+        }
         return room;
+    }
+    public static Person deQueuePerson()
+    {
+        Person customer;
+        if(front!=-1)
+        {
+            customer=guest[front];
+            if(front==rear)
+            {
+                front=-1;
+                rear=-1;
+            }
+            else
+            {
+                front=(front+1)%size;
+            }
+        }
+        else
+        {
+            customer=new Person("e","e",0);
+        }
+        return customer;
     }
 
 }
+
+/*
+Refernces
+
+https://www.programiz.com/dsa/circular-queue
+ */

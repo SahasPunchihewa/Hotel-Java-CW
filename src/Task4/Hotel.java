@@ -127,7 +127,21 @@ public class Hotel
         }
     }
     //view empty rooms method
-    private static int viewEmpty(Room hotelRoom[])
+    private static void viewEmpty(Room hotelRoom[])
+    {
+        //loop for find empty rooms
+        for (int x = 0; x < 8; x++ )
+        {
+            Room room=hotelRoom[x];
+            String rName=room.getCusName();
+            //checks of the room is empty or not
+            if (rName.equals("e"))
+            {
+                System.out.println("room " + x + " is empty");
+            }
+        }
+    }
+    private static int emptyCount(Room hotelRoom[])
     {
         int rCount=0;
         //loop for find empty rooms
@@ -138,7 +152,6 @@ public class Hotel
             //checks of the room is empty or not
             if (rName.equals("e"))
             {
-                System.out.println("room " + x + " is empty");
                 rCount++;
             }
         }
@@ -163,7 +176,7 @@ public class Hotel
                     {
                         System.out.println("This Room Is Booked Try Another One From Below !");
                         System.out.println();
-                        int rCount=viewEmpty(hRooms);
+                        int rCount=emptyCount(hRooms);
                         if(rCount==0)
                         {
                             System.out.println("Sorry All The Rooms Are Booked You Will Be Added To The Queue\n");
@@ -233,6 +246,17 @@ public class Hotel
             Person gusest=new Person("e","e",0);
             hRooms[rNumber]=newroom;
             guestList[rNumber]=gusest;
+            int rCount=emptyCount(hRooms);
+            if(rCount!=0)
+            {
+                Room nRoom=RQueue.deQueueRoom();
+                if(!nRoom.getCusName().equals("e"))
+                {
+                    Person nGuest=RQueue.deQueuePerson();
+                    hRooms[rNumber]=nRoom;
+                    guestList[rNumber]=nGuest;
+                }
+            }
             System.out.println("Successfully Deleted "+rName);
         }
     }
