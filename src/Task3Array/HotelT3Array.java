@@ -83,12 +83,12 @@ public class HotelT3Array
                         subloop = 0;
                         loadData (hotel);
                         break;
-                    /*case "o" :
+                    case "o" :
                         //sorts customer names alphabetically
                         subloop = 0;
                         sortData (hotel);
                         break;
-                    */default :
+                    default :
                         //repeat menu input when given input is wrong
                         System.out.println("Please Enter A Correct Command !");
                 }
@@ -274,30 +274,42 @@ public class HotelT3Array
         }
     }
     //sort data method
-    private static void sortData(String hRooms[])
+    private static void sortData(String hRooms[][])
     {
         //create sort data array
-        String[] sortedRooms = hRooms;
+        String[][] sortedRooms = hRooms;
         for(int j = 0; j < sortedRooms.length; j++)
         {
             //compare values by name
             for (int i = 0; i < sortedRooms.length-1; i++)
             {
-                String tmp = sortedRooms[i];
-                String tmp2 = sortedRooms[i+1];
-                if(tmp.compareTo(tmp2) >0)
+                String tmpfn = sortedRooms[i][0];
+                String tmpfn2 = sortedRooms[i+1][0];
+                String tmpln = sortedRooms[i][1];
+                String tmpln2 = sortedRooms[i+1][1];
+                String tmpcn = sortedRooms[i][2];
+                String tmpcn2 = sortedRooms[i+1][2];
+                String tmpcarn = sortedRooms[i][3];
+                String tmpcarn2 = sortedRooms[i+1][3];
+                if(tmpfn.compareTo(tmpfn2) >0)
                 {
-                    sortedRooms[i] = tmp2;
-                    sortedRooms[i+1] = tmp;
+                    sortedRooms[i][0] = tmpfn2;
+                    sortedRooms[i+1][0] = tmpfn;
+                    sortedRooms[i][1] = tmpln2;
+                    sortedRooms[i+1][1] = tmpln;
+                    sortedRooms[i][2] = tmpcn2;
+                    sortedRooms[i+1][2] = tmpcn;
+                    sortedRooms[i][3] = tmpcarn2;
+                    sortedRooms[i+1][3] = tmpcarn;
                 }
             }
         }
         //prints sorted names without empty values
-        for (int x = 0; x < hRooms.length; x++ )
+        for (int x = 0; x < 8; x++ )
         {
-            if (!sortedRooms[x].equals("e"))
+            if (!sortedRooms[x][0].equals("e"))
             {
-                System.out.println(sortedRooms[x]);
+                System.out.println(sortedRooms[x][0]);
             }
         }
     }
