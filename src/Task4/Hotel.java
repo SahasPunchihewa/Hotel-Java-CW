@@ -27,10 +27,10 @@ public class Hotel
         {
             //print menu legend
             System.out.println("\n------------------------------------------------------------------");
-            System.out.println("Please Select One From Below List\nv - View All Rooms\na - Add a Person\n" +
-                    "e - Display Empty Rooms\nd - Delete Person From Room\nf - Find Room From Person\n" +
-                    "s - Store Program Data Into File\nl - Load Program Data From File\no - View Guests Order By First Name" +
-                    "\nx - Stop Program");
+            System.out.println("Please Select One From Below List\nV - View All Rooms\nA - Add a Person\n" +
+                    "E - Display Empty Rooms\nD - Delete Person From Room\nF - Find Room From Person\n" +
+                    "S - Store Program Data Into File\nL - Load Program Data From File\nO - View Guests Order By First Name" +
+                    "\nX - Stop Program");
             System.out.println("------------------------------------------------------------------");
             int subloop = 1;
             //loop for repeating input if wrong input is given

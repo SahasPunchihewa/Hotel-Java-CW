@@ -19,3 +19,5 @@ E
 src/Task4/Person.java,c\2\c228ac799ab20aa5c4e95c4523cd67f46dd299a8
 C
 src/Task4/Room.java,6\7\67d680122b607568a5e214ad47672988d8a0fa06
+E
+src/Task4/RQueue.java,5\2\5274e68d30e8a6da69365308bd77916a362a4445
